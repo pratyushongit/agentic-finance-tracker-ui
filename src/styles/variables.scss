@@ -140,6 +140,7 @@ $breakpoints: (
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--gray-200);
+  padding: var(--spacing-xl);
   
   [data-theme="dark"] & {
     border-color: var(--gray-700);

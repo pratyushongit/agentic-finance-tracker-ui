@@ -34,22 +34,24 @@
   &__charts {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-2xl);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
     
     @include respond-to('lg') {
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr 1fr;
     }
+  }
+
+  &__right-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 
   &__bottom {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-    
-    @include respond-to('lg') {
-      grid-template-columns: 1fr 1fr;
-    }
+    gap: var(--spacing-lg);
   }
 }
 
@@ -58,7 +60,6 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
-  padding: var(--spacing-xl);
   transition: all var(--transition-normal);
   
   &:hover {
@@ -155,8 +156,13 @@
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     .recharts-wrapper {
       font-family: var(--font-family-sans);
+      width: 100% !important;
     }
     
     .recharts-tooltip-wrapper {
@@ -173,8 +179,8 @@
 .chart-legend {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-lg);
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
 
   &__item {
     display: flex;
@@ -197,6 +203,32 @@
   }
 }
 
+.pie-chart-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  justify-content: flex-start;
+  
+  .chart-wrapper {
+    flex-shrink: 0;
+    margin-right: var(--spacing-sm);
+  }
+  
+  .chart-legend {
+    flex: 1;
+    margin-top: 0;
+    min-width: 0;
+  }
+  
+  @include respond-to('sm') {
+    gap: var(--spacing-2xl);
+    
+    .chart-wrapper {
+      margin-right: var(--spacing-md);
+    }
+  }
+}
+
 .transactions-card {
   @include card;
   
@@ -215,13 +247,13 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
   }
 }
 
 .transaction-item {
   @include flex-between;
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius-md);
   transition: background-color var(--transition-fast);
   

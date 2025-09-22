@@ -127,7 +127,6 @@ a {
 // Cards
 .card {
   @include card;
-  padding: var(--spacing-xl);
   
   &--sm {
     padding: var(--spacing-md);

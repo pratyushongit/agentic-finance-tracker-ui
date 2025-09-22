@@ -136,105 +136,7 @@ const Dashboard: React.FC = () => {
 
       {/* Charts Section */}
       <div className="dashboard__charts">
-        <motion.div className="chart-card" variants={itemVariants}>
-          <div className="chart-card__header">
-            <h3>Spending Trend</h3>
-            <div className="chart-card__actions">
-              <button className="btn btn--sm btn--secondary">6M</button>
-              <button className="btn btn--sm btn--primary">1Y</button>
-            </div>
-          </div>
-          <div className="chart-card__content">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={spendingData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--gray-200)" />
-                <XAxis dataKey="month" stroke="var(--text-tertiary)" />
-                <YAxis stroke="var(--text-tertiary)" />
-                <Tooltip 
-                  contentStyle={{
-                    backgroundColor: 'var(--bg-primary)',
-                    border: '1px solid var(--gray-200)',
-                    borderRadius: 'var(--radius-md)'
-                  }}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="amount" 
-                  stroke="var(--primary-blue)" 
-                  strokeWidth={3}
-                  dot={{ fill: 'var(--primary-blue)', strokeWidth: 2, r: 6 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </motion.div>
-
-        <motion.div className="chart-card" variants={itemVariants}>
-          <div className="chart-card__header">
-            <h3>Category Breakdown</h3>
-            <PieChart className="chart-card__icon" size={20} />
-          </div>
-          <div className="chart-card__content">
-            <ResponsiveContainer width="100%" height={300}>
-              <RechartsPieChart>
-                <Pie
-                  data={categoryData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={120}
-                  paddingAngle={5}
-                  dataKey="value"
-                >
-                  {categoryData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </RechartsPieChart>
-            </ResponsiveContainer>
-            <div className="chart-legend">
-              {categoryData.map((item, index) => (
-                <div key={index} className="chart-legend__item">
-                  <div 
-                    className="chart-legend__color" 
-                    style={{ backgroundColor: item.color }}
-                  />
-                  <span>{item.name}</span>
-                  <span className="chart-legend__value">${item.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Monthly Spending and Recent Transactions */}
-      <div className="dashboard__bottom">
-        <motion.div className="chart-card" variants={itemVariants}>
-          <div className="chart-card__header">
-            <h3>Monthly Spending by Category</h3>
-            <BarChart3 className="chart-card__icon" size={20} />
-          </div>
-          <div className="chart-card__content">
-            <ResponsiveContainer width="100%" height={250}>
-              <BarChart data={monthlySpending}>
-                <CartesianGrid strokeDasharray="3 3" stroke="var(--gray-200)" />
-                <XAxis dataKey="category" stroke="var(--text-tertiary)" />
-                <YAxis stroke="var(--text-tertiary)" />
-                <Tooltip 
-                  contentStyle={{
-                    backgroundColor: 'var(--bg-primary)',
-                    border: '1px solid var(--gray-200)',
-                    borderRadius: 'var(--radius-md)'
-                  }}
-                />
-                <Bar dataKey="amount" fill="var(--primary-blue)" radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </motion.div>
-
+        {/* Recent Transactions - Left Half */}
         <motion.div className="transactions-card" variants={itemVariants}>
           <div className="transactions-card__header">
             <h3>Recent Transactions</h3>
@@ -261,6 +163,114 @@ const Dashboard: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* Right Column - Charts */}
+        <div className="dashboard__right-column">
+          {/* Monthly Spending by Category - Top Right */}
+          <motion.div className="chart-card" variants={itemVariants}>
+            <div className="chart-card__header">
+              <h3>Monthly Spending by Category</h3>
+              <BarChart3 className="chart-card__icon" size={20} />
+            </div>
+            <div className="chart-card__content">
+              <ResponsiveContainer width="100%" height={200}>
+                <BarChart data={monthlySpending}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--gray-200)" />
+                  <XAxis dataKey="category" stroke="var(--text-tertiary)" />
+                  <YAxis stroke="var(--text-tertiary)" />
+                  <Tooltip 
+                    contentStyle={{
+                      backgroundColor: 'var(--bg-primary)',
+                      border: '1px solid var(--gray-200)',
+                      borderRadius: 'var(--radius-md)'
+                    }}
+                  />
+                  <Bar dataKey="amount" fill="var(--primary-blue)" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.div>
+
+          {/* Category Breakdown - Bottom Right */}
+          <motion.div className="chart-card" variants={itemVariants}>
+            <div className="chart-card__header">
+              <h3>Category Breakdown</h3>
+              <PieChart className="chart-card__icon" size={20} />
+            </div>
+            <div className="chart-card__content">
+              <div className="pie-chart-container">
+                <div className="chart-wrapper">
+                  <ResponsiveContainer width={200} height={200}>
+                    <RechartsPieChart>
+                      <Pie
+                        data={categoryData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={40}
+                        outerRadius={80}
+                        paddingAngle={5}
+                        dataKey="value"
+                      >
+                        {categoryData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                    </RechartsPieChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className="chart-legend">
+                  {categoryData.map((item, index) => (
+                    <div key={index} className="chart-legend__item">
+                      <div 
+                        className="chart-legend__color" 
+                        style={{ backgroundColor: item.color }}
+                      />
+                      <span>{item.name}</span>
+                      <span className="chart-legend__value">${item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Spending Trend */}
+      <div className="dashboard__bottom">
+        <motion.div className="chart-card" variants={itemVariants}>
+          <div className="chart-card__header">
+            <h3>Spending Trend</h3>
+            <div className="chart-card__actions">
+              <button className="btn btn--sm btn--secondary">6M</button>
+              <button className="btn btn--sm btn--primary">1Y</button>
+            </div>
+          </div>
+          <div className="chart-card__content">
+            <ResponsiveContainer width="100%" height={250}>
+              <LineChart data={spendingData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--gray-200)" />
+                <XAxis dataKey="month" stroke="var(--text-tertiary)" />
+                <YAxis stroke="var(--text-tertiary)" />
+                <Tooltip 
+                  contentStyle={{
+                    backgroundColor: 'var(--bg-primary)',
+                    border: '1px solid var(--gray-200)',
+                    borderRadius: 'var(--radius-md)'
+                  }}
+                />
+                <Line 
+                  type="monotone" 
+                  dataKey="amount" 
+                  stroke="var(--primary-blue)" 
+                  strokeWidth={3}
+                  dot={{ fill: 'var(--primary-blue)', strokeWidth: 2, r: 6 }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </motion.div>
       </div>
