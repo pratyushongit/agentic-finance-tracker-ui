@@ -135,8 +135,19 @@
     flex-direction: row-reverse;
     
     .message__bubble {
-      background-color: var(--primary-blue);
-      color: white;
+      background-color: var(--primary-blue) !important;
+      color: white !important;
+      border: 1px solid var(--primary-blue);
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+      
+      p, span, div {
+        color: white !important;
+      }
+      
+      strong {
+        color: white !important;
+        font-weight: 600;
+      }
     }
   }
   
@@ -180,6 +191,8 @@
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
     word-wrap: break-word;
+    font-weight: 400;
+    opacity: 1;
     
     p {
       margin: 0;
