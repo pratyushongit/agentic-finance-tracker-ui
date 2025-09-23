@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Menu, Search, Bell, Moon, Sun, User } from 'lucide-react'
+import { Menu, Bell, Moon, Sun, User } from 'lucide-react'
 import { motion } from 'framer-motion'
 import './Header.scss'
 
@@ -9,7 +9,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode)
@@ -31,17 +30,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         >
           <Menu size={24} />
         </button>
-        
-        <div className="header__search">
-          <Search className="header__search-icon" size={20} />
-          <input
-            type="text"
-            placeholder="Search transactions, categories..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="header__search-input"
-          />
-        </div>
       </div>
 
       <div className="header__right">

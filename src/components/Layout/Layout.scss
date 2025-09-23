@@ -2,6 +2,7 @@
   display: flex;
   min-height: 100vh;
   background-color: var(--bg-secondary);
+  padding-top: 80px; // Header height
 
   &__main {
     flex: 1;

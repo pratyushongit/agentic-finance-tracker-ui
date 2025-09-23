@@ -6,7 +6,7 @@
   width: 280px;
   background-color: var(--bg-primary);
   border-right: 1px solid var(--gray-200);
-  z-index: 50;
+  z-index: 40;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -34,6 +34,7 @@
     @include flex-between;
     padding: var(--spacing-xl);
     border-bottom: 1px solid var(--gray-200);
+    height: 80px;
     
     [data-theme="dark"] & {
       border-color: var(--gray-700);
@@ -82,15 +83,13 @@
     padding: var(--spacing-lg) 0;
   }
 
-  &__nav-group {
-    margin-bottom: var(--spacing-sm);
-  }
 
   &__nav-item {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
     padding: var(--spacing-md) var(--spacing-xl);
+    margin-bottom: var(--spacing-xs);
     color: var(--text-secondary);
     text-decoration: none;
     transition: all var(--transition-fast);
@@ -139,50 +138,12 @@
     line-height: var(--leading-tight);
   }
 
-  &__sub-nav {
-    margin-left: var(--spacing-xl);
-    padding-left: var(--spacing-lg);
-    border-left: 1px solid var(--gray-200);
-    
-    [data-theme="dark"] & {
-      border-color: var(--gray-700);
-    }
-  }
-
-  &__sub-nav-item {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm) var(--spacing-md);
-    color: var(--text-tertiary);
-    text-decoration: none;
-    font-size: var(--text-sm);
-    border-radius: var(--radius-md);
-    margin: 2px 0;
-    transition: all var(--transition-fast);
-    
-    &:hover {
-      background-color: var(--gray-50);
-      color: var(--text-secondary);
-      
-      [data-theme="dark"] & {
-        background-color: var(--gray-800);
-      }
-    }
-    
-    &--active {
-      background-color: var(--primary-blue);
-      color: white;
-    }
-  }
-
-  &__sub-nav-icon {
-    flex-shrink: 0;
-  }
 
   &__footer {
+    @include flex-center;
     padding: var(--spacing-xl);
     border-top: 1px solid var(--gray-200);
+    height: 80px;
     
     [data-theme="dark"] & {
       border-color: var(--gray-700);

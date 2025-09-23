@@ -8,12 +8,7 @@ import {
   BarChart3, 
   Bell, 
   X,
-  TrendingUp,
-  PieChart,
-  FileText,
-  Mail,
-  Smartphone,
-  CreditCard
+  TrendingUp
 } from 'lucide-react'
 import './Sidebar.scss'
 
@@ -39,24 +34,13 @@ const navigationItems = [
     title: 'Input Sources',
     icon: Upload,
     path: '/input-sources',
-    description: 'Data Import & Management',
-    subItems: [
-      { title: 'SMS Exports', icon: Smartphone, path: '/input-sources/sms' },
-      { title: 'Email Transactions', icon: Mail, path: '/input-sources/email' },
-      { title: 'Bank Statements', icon: CreditCard, path: '/input-sources/bank' },
-      { title: 'File Upload', icon: FileText, path: '/input-sources/upload' }
-    ]
+    description: 'Data Import & Management'
   },
   {
     title: 'Visualization',
     icon: BarChart3,
     path: '/visualization',
-    description: 'Charts & Reports',
-    subItems: [
-      { title: 'Spending Charts', icon: TrendingUp, path: '/visualization/spending' },
-      { title: 'Trend Analysis', icon: BarChart3, path: '/visualization/trends' },
-      { title: 'Category Breakdown', icon: PieChart, path: '/visualization/categories' }
-    ]
+    description: 'Charts & Reports'
   },
   {
     title: 'Alerts & Notifications',
@@ -133,39 +117,20 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
         <nav className="sidebar__nav">
           {navigationItems.map((item) => (
-            <div key={item.path} className="sidebar__nav-group">
-              <NavLink
-                to={item.path}
-                className={({ isActive }) => 
-                  `sidebar__nav-item ${isActive ? 'sidebar__nav-item--active' : ''}`
-                }
-                onClick={() => window.innerWidth < 1024 && onClose()}
-              >
-                <item.icon className="sidebar__nav-icon" size={20} />
-                <div className="sidebar__nav-content">
-                  <span className="sidebar__nav-title">{item.title}</span>
-                  <span className="sidebar__nav-description">{item.description}</span>
-                </div>
-              </NavLink>
-              
-              {item.subItems && (
-                <div className="sidebar__sub-nav">
-                  {item.subItems.map((subItem) => (
-                    <NavLink
-                      key={subItem.path}
-                      to={subItem.path}
-                      className={({ isActive }) => 
-                        `sidebar__sub-nav-item ${isActive ? 'sidebar__sub-nav-item--active' : ''}`
-                      }
-                      onClick={() => window.innerWidth < 1024 && onClose()}
-                    >
-                      <subItem.icon className="sidebar__sub-nav-icon" size={16} />
-                      <span>{subItem.title}</span>
-                    </NavLink>
-                  ))}
-                </div>
-              )}
-            </div>
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) => 
+                `sidebar__nav-item ${isActive ? 'sidebar__nav-item--active' : ''}`
+              }
+              onClick={() => window.innerWidth < 1024 && onClose()}
+            >
+              <item.icon className="sidebar__nav-icon" size={20} />
+              <div className="sidebar__nav-content">
+                <span className="sidebar__nav-title">{item.title}</span>
+                <span className="sidebar__nav-description">{item.description}</span>
+              </div>
+            </NavLink>
           ))}
         </nav>
 
