@@ -1,4 +1,11 @@
 .view-all-notifications {
+  height: 100%;
+  overflow-y: auto;
+  padding: var(--spacing-xl);
+  
+  @include respond-to('sm') {
+    padding: var(--spacing-2xl);
+  }
   &__header {
     @include flex-between;
     margin-bottom: var(--spacing-xl);

@@ -4,6 +4,11 @@
   height: 100%;
   margin: 0 auto;
   overflow: hidden;
+  padding: var(--spacing-xl);
+
+  @include respond-to('sm') {
+    padding: var(--spacing-2xl);
+  }
 
   &__header {
     @include flex-between;

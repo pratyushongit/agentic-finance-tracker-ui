@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Send, Bot, User, Loader, Paperclip, Mic, MicOff } from 'lucide-react'
+import { Send, Bot, User, Paperclip, Mic, MicOff } from 'lucide-react'
 import './ChatInterface.scss'
 
 interface Message {

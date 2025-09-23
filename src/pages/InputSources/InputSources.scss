@@ -1,4 +1,11 @@
 .input-sources {
+  height: 100%;
+  overflow-y: auto;
+  padding: var(--spacing-xl);
+  
+  @include respond-to('sm') {
+    padding: var(--spacing-2xl);
+  }
   &__header {
     margin-bottom: var(--spacing-2xl);
     

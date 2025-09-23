@@ -1,6 +1,6 @@
 .layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh; // Exact viewport height to prevent HTML scroll
   background-color: var(--bg-secondary);
   padding-top: 80px; // Header height
 
@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     min-width: 0; // Prevent flex item from overflowing
+    height: calc(100vh - 80px); // Available height minus header
     
     @include respond-to('lg') {
       margin-left: 280px; // Sidebar width
@@ -17,11 +18,8 @@
 
   &__content {
     flex: 1;
-    padding: var(--spacing-xl);
-    overflow-y: auto;
-    
-    @include respond-to('sm') {
-      padding: var(--spacing-2xl);
-    }
+    display: flex;
+    flex-direction: column;
+    min-height: 0; // Allow flex child to shrink
   }
 }
