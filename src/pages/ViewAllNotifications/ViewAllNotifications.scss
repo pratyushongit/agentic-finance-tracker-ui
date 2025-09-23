@@ -3,14 +3,14 @@
   overflow-y: auto;
   padding: var(--spacing-xl);
 
-  @include respond-to("sm") {
+  @include respond-to('sm') {
     padding: var(--spacing-2xl);
   }
   &__header {
     @include flex-between;
     margin-bottom: var(--spacing-xl);
 
-    @include respond-to("sm") {
+    @include respond-to('sm') {
       flex-direction: row;
       align-items: center;
     }
@@ -54,7 +54,7 @@
       background-color: var(--gray-200);
     }
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       background-color: var(--gray-800);
 
       &:hover {
@@ -82,7 +82,7 @@
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
 
-    @include respond-to("md") {
+    @include respond-to('md') {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
@@ -133,7 +133,7 @@
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   }
 
-  [data-theme="dark"] & {
+  [data-theme='dark'] & {
     background-color: var(--gray-800);
     border-color: var(--gray-700);
   }
@@ -169,7 +169,7 @@
       color: var(--text-primary);
       background-color: var(--gray-100);
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         background-color: var(--gray-700);
       }
     }
@@ -206,7 +206,7 @@
     color: var(--text-primary);
     font-size: var(--text-sm);
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       background-color: var(--gray-800);
       border-color: var(--gray-700);
     }
@@ -227,7 +227,7 @@
   font-size: var(--text-sm);
   color: var(--text-secondary);
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     width: 16px;
     height: 16px;
     accent-color: var(--primary-blue);
@@ -239,11 +239,11 @@
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
 
-  @include respond-to("md") {
+  @include respond-to('md') {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @include respond-to("xl") {
+  @include respond-to('xl') {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -263,7 +263,7 @@
     border-left: 4px solid var(--primary-blue);
     background-color: rgba(37, 99, 235, 0.02);
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       border-left-color: #3b82f6; // Brighter blue for dark mode
       background-color: rgba(59, 130, 246, 0.05);
     }
@@ -433,7 +433,7 @@
       background-color: rgba(37, 99, 235, 0.2);
     }
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       background-color: rgba(59, 130, 246, 0.1);
 
       &:hover {

@@ -10,11 +10,11 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  
-  [data-theme="dark"] & {
+
+  [data-theme='dark'] & {
     border-color: var(--gray-700);
   }
-  
+
   @include respond-to('lg') {
     position: fixed;
     transform: translateX(0) !important;
@@ -35,8 +35,8 @@
     padding: var(--spacing-xl);
     border-bottom: 1px solid var(--gray-200);
     height: 64px;
-    
-    [data-theme="dark"] & {
+
+    [data-theme='dark'] & {
       border-color: var(--gray-700);
     }
   }
@@ -50,7 +50,11 @@
   &__logo-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+    background: linear-gradient(
+      135deg,
+      var(--primary-blue),
+      var(--primary-blue-light)
+    );
     border-radius: var(--radius-lg);
     @include flex-center;
     color: white;
@@ -67,12 +71,12 @@
     background: none;
     padding: var(--spacing-xs);
     color: var(--text-secondary);
-    
+
     &:hover {
       color: var(--text-primary);
       background-color: var(--gray-100);
-      
-      [data-theme="dark"] & {
+
+      [data-theme='dark'] & {
         background-color: var(--gray-800);
       }
     }
@@ -82,7 +86,6 @@
     flex: 1;
     padding: var(--spacing-lg) 0;
   }
-
 
   &__nav-item {
     display: flex;
@@ -94,22 +97,22 @@
     text-decoration: none;
     transition: all var(--transition-fast);
     border-right: 3px solid transparent;
-    
+
     &:hover {
       background-color: var(--gray-50);
       color: var(--text-primary);
-      
-      [data-theme="dark"] & {
+
+      [data-theme='dark'] & {
         background-color: var(--gray-800);
       }
     }
-    
+
     &--active {
       background-color: rgba(37, 99, 235, 0.1);
       color: var(--primary-blue);
       border-right-color: var(--primary-blue);
-      
-      [data-theme="dark"] & {
+
+      [data-theme='dark'] & {
         background-color: rgba(59, 130, 246, 0.1);
       }
     }
@@ -138,14 +141,13 @@
     line-height: var(--leading-tight);
   }
 
-
   &__footer {
     @include flex-center;
     padding: var(--spacing-xl);
     border-top: 1px solid var(--gray-200);
     height: 64px;
-    
-    [data-theme="dark"] & {
+
+    [data-theme='dark'] & {
       border-color: var(--gray-700);
     }
   }
@@ -159,7 +161,11 @@
   &__user-avatar {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--accent-green), var(--accent-green-light));
+    background: linear-gradient(
+      135deg,
+      var(--accent-green),
+      var(--accent-green-light)
+    );
     border-radius: 50%;
     @include flex-center;
     color: white;

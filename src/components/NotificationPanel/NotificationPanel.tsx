@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 import {
   X,
   Check,
@@ -8,12 +8,12 @@ import {
   DollarSign,
   TrendingUp,
   CreditCard,
-} from "lucide-react";
-import "./NotificationPanel.scss";
+} from 'lucide-react';
+import './NotificationPanel.scss';
 
 export interface Notification {
   id: string;
-  type: "budget" | "transaction" | "alert" | "achievement";
+  type: 'budget' | 'transaction' | 'alert' | 'achievement';
   title: string;
   message: string;
   timestamp: Date;
@@ -38,15 +38,15 @@ const NotificationPanel: React.FC<NotificationPanelProps> = ({
   onClose,
   onViewAll,
 }) => {
-  const getNotificationIcon = (type: Notification["type"]) => {
+  const getNotificationIcon = (type: Notification['type']) => {
     switch (type) {
-      case "budget":
+      case 'budget':
         return <AlertCircle size={20} />;
-      case "transaction":
+      case 'transaction':
         return <DollarSign size={20} />;
-      case "achievement":
+      case 'achievement':
         return <TrendingUp size={20} />;
-      case "alert":
+      case 'alert':
         return <CreditCard size={20} />;
       default:
         return <Bell size={20} />;
@@ -68,7 +68,7 @@ const NotificationPanel: React.FC<NotificationPanelProps> = ({
     }
   };
 
-  const unreadCount = notifications.filter((n) => !n.isRead).length;
+  const unreadCount = notifications.filter(n => !n.isRead).length;
 
   return (
     <motion.div
@@ -76,7 +76,7 @@ const NotificationPanel: React.FC<NotificationPanelProps> = ({
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
     >
       <div className="notification-panel__header">
         <h3>Notifications</h3>
@@ -105,17 +105,17 @@ const NotificationPanel: React.FC<NotificationPanelProps> = ({
           </div>
         ) : (
           <div className="notification-list">
-            {notifications.map((notification) => (
+            {notifications.map(notification => (
               <motion.div
                 key={notification.id}
                 className={`notification-item ${
-                  !notification.isRead ? "notification-item--unread" : ""
+                  !notification.isRead ? 'notification-item--unread' : ''
                 }`}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-                whileHover={{ backgroundColor: "var(--gray-50)" }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                whileHover={{ backgroundColor: 'var(--gray-50)' }}
                 onClick={() =>
                   !notification.isRead && onMarkAsRead(notification.id)
                 }
@@ -142,10 +142,10 @@ const NotificationPanel: React.FC<NotificationPanelProps> = ({
                     <div className="notification-item__amount">
                       <span
                         className={
-                          notification.amount > 0 ? "positive" : "negative"
+                          notification.amount > 0 ? 'positive' : 'negative'
                         }
                       >
-                        {notification.amount > 0 ? "+" : ""}$
+                        {notification.amount > 0 ? '+' : ''}$
                         {Math.abs(notification.amount).toFixed(2)}
                       </span>
                     </div>
@@ -154,7 +154,7 @@ const NotificationPanel: React.FC<NotificationPanelProps> = ({
 
                 <button
                   className="notification-item__dismiss"
-                  onClick={(e) => {
+                  onClick={e => {
                     e.stopPropagation();
                     onDismissNotification(notification.id);
                   }}

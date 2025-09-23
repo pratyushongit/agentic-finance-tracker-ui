@@ -45,17 +45,20 @@ A modern, responsive React SPA for the Finance Agent Agentic Workflow Architectu
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd agentic-finance-tracker-ui
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -65,17 +68,20 @@ npm run dev
 ## 🎨 Design System
 
 ### Color Palette
+
 - **Primary**: Blue (#2563eb)
 - **Secondary**: Orange (#f59e0b)
 - **Accent**: Green (#10b981)
 - **Status Colors**: Success, Warning, Error, Info
 
 ### Typography
+
 - **Font Family**: Inter (Google Fonts)
 - **Font Sizes**: Responsive scale from 0.75rem to 2.25rem
 - **Font Weights**: 300, 400, 500, 600, 700
 
 ### Components
+
 - **Cards**: Consistent padding, shadows, and border radius
 - **Buttons**: Multiple variants (primary, secondary, success, warning, error)
 - **Forms**: Styled inputs with focus states
@@ -84,6 +90,7 @@ npm run dev
 ## 🌙 Theme Support
 
 The application supports both light and dark themes with:
+
 - CSS custom properties for easy theme switching
 - Automatic system preference detection
 - Manual theme toggle in header
@@ -126,30 +133,35 @@ src/
 ## 🎯 Key Features Implementation
 
 ### Dashboard
+
 - Real-time financial metrics
 - Interactive charts with Recharts
 - Recent transactions list
 - Budget vs actual spending comparison
 
 ### Chat Interface
+
 - AI-powered financial assistant
 - Natural language query processing
 - Suggested questions for quick access
 - Voice input support (UI ready)
 
 ### Input Sources
+
 - Multiple data source connections
 - File upload with validation
 - Processing status tracking
 - Integration management
 
 ### Visualization
+
 - Multiple chart types (line, bar, pie, area)
 - Time-based filtering
 - Category-based analysis
 - Export functionality (UI ready)
 
 ### Alerts System
+
 - Configurable alert rules
 - Real-time notifications
 - Priority-based categorization

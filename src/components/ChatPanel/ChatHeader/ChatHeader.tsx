@@ -1,6 +1,6 @@
-import React from "react";
-import { Bot, X, Minimize2 } from "lucide-react";
-import "./ChatHeader.scss";
+import React from 'react';
+import { Bot, X, Minimize2 } from 'lucide-react';
+import './ChatHeader.scss';
 
 interface ChatHeaderProps {
   isMinimized: boolean;
@@ -31,7 +31,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
         <button
           className="chat-panel__control-btn"
           onClick={onToggleMinimize}
-          aria-label={isMinimized ? "Expand chat" : "Minimize chat"}
+          aria-label={isMinimized ? 'Expand chat' : 'Minimize chat'}
         >
           <Minimize2 size={16} />
         </button>

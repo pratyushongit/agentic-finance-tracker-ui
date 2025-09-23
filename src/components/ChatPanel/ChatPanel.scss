@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .chat-panel {
   position: fixed;
@@ -28,9 +28,10 @@
     max-width: 100%;
     box-sizing: border-box;
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       border-color: var(--gray-700);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+      box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.3),
         0 8px 10px -6px rgba(0, 0, 0, 0.3);
     }
 

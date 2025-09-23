@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   BarChart3,
   PieChart,
@@ -9,7 +9,7 @@ import {
   Download,
   Maximize2,
   RefreshCw,
-} from "lucide-react";
+} from 'lucide-react';
 import {
   LineChart,
   Line,
@@ -25,56 +25,56 @@ import {
   Bar,
   AreaChart,
   Area,
-} from "recharts";
-import "./Visualization.scss";
+} from 'recharts';
+import './Visualization.scss';
 
 const Visualization: React.FC = () => {
-  const [selectedPeriod, setSelectedPeriod] = useState("6M");
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedPeriod, setSelectedPeriod] = useState('6M');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   // Mock data
   const spendingTrendData = [
-    { month: "Jul", amount: 2400, income: 4200, savings: 1800 },
-    { month: "Aug", amount: 1398, income: 4200, savings: 2802 },
-    { month: "Sep", amount: 2800, income: 4200, savings: 1400 },
-    { month: "Oct", amount: 3908, income: 4200, savings: 292 },
-    { month: "Nov", amount: 4800, income: 4200, savings: -600 },
-    { month: "Dec", amount: 3800, income: 4200, savings: 400 },
+    { month: 'Jul', amount: 2400, income: 4200, savings: 1800 },
+    { month: 'Aug', amount: 1398, income: 4200, savings: 2802 },
+    { month: 'Sep', amount: 2800, income: 4200, savings: 1400 },
+    { month: 'Oct', amount: 3908, income: 4200, savings: 292 },
+    { month: 'Nov', amount: 4800, income: 4200, savings: -600 },
+    { month: 'Dec', amount: 3800, income: 4200, savings: 400 },
   ];
 
   const categoryBreakdownData = [
-    { name: "Food & Dining", value: 1200, color: "#8884d8", percentage: 35 },
-    { name: "Transportation", value: 800, color: "#82ca9d", percentage: 23 },
-    { name: "Shopping", value: 600, color: "#ffc658", percentage: 17 },
-    { name: "Entertainment", value: 400, color: "#ff7c7c", percentage: 12 },
-    { name: "Bills & Utilities", value: 300, color: "#8dd1e1", percentage: 9 },
-    { name: "Healthcare", value: 150, color: "#d084d0", percentage: 4 },
+    { name: 'Food & Dining', value: 1200, color: '#8884d8', percentage: 35 },
+    { name: 'Transportation', value: 800, color: '#82ca9d', percentage: 23 },
+    { name: 'Shopping', value: 600, color: '#ffc658', percentage: 17 },
+    { name: 'Entertainment', value: 400, color: '#ff7c7c', percentage: 12 },
+    { name: 'Bills & Utilities', value: 300, color: '#8dd1e1', percentage: 9 },
+    { name: 'Healthcare', value: 150, color: '#d084d0', percentage: 4 },
   ];
 
   const monthlyComparisonData = [
-    { category: "Food", thisMonth: 1200, lastMonth: 1100, budget: 1000 },
-    { category: "Transport", thisMonth: 800, lastMonth: 750, budget: 700 },
-    { category: "Shopping", thisMonth: 600, lastMonth: 800, budget: 500 },
-    { category: "Entertainment", thisMonth: 400, lastMonth: 350, budget: 300 },
-    { category: "Bills", thisMonth: 300, lastMonth: 320, budget: 350 },
+    { category: 'Food', thisMonth: 1200, lastMonth: 1100, budget: 1000 },
+    { category: 'Transport', thisMonth: 800, lastMonth: 750, budget: 700 },
+    { category: 'Shopping', thisMonth: 600, lastMonth: 800, budget: 500 },
+    { category: 'Entertainment', thisMonth: 400, lastMonth: 350, budget: 300 },
+    { category: 'Bills', thisMonth: 300, lastMonth: 320, budget: 350 },
   ];
 
   const dailySpendingData = [
-    { day: "1", amount: 45 },
-    { day: "2", amount: 120 },
-    { day: "3", amount: 80 },
-    { day: "4", amount: 200 },
-    { day: "5", amount: 150 },
-    { day: "6", amount: 90 },
-    { day: "7", amount: 300 },
-    { day: "8", amount: 75 },
-    { day: "9", amount: 180 },
-    { day: "10", amount: 220 },
-    { day: "11", amount: 95 },
-    { day: "12", amount: 160 },
-    { day: "13", amount: 140 },
-    { day: "14", amount: 250 },
-    { day: "15", amount: 110 },
+    { day: '1', amount: 45 },
+    { day: '2', amount: 120 },
+    { day: '3', amount: 80 },
+    { day: '4', amount: 200 },
+    { day: '5', amount: 150 },
+    { day: '6', amount: 90 },
+    { day: '7', amount: 300 },
+    { day: '8', amount: 75 },
+    { day: '9', amount: 180 },
+    { day: '10', amount: 220 },
+    { day: '11', amount: 95 },
+    { day: '12', amount: 160 },
+    { day: '13', amount: 140 },
+    { day: '14', amount: 250 },
+    { day: '15', amount: 110 },
   ];
 
   const containerVariants = {
@@ -110,7 +110,7 @@ const Visualization: React.FC = () => {
             <label>Period:</label>
             <select
               value={selectedPeriod}
-              onChange={(e) => setSelectedPeriod(e.target.value)}
+              onChange={e => setSelectedPeriod(e.target.value)}
               className="form-input"
             >
               <option value="1M">1 Month</option>
@@ -124,7 +124,7 @@ const Visualization: React.FC = () => {
             <label>Category:</label>
             <select
               value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              onChange={e => setSelectedCategory(e.target.value)}
               className="form-input"
             >
               <option value="all">All Categories</option>
@@ -211,10 +211,10 @@ const Visualization: React.FC = () => {
                 <YAxis stroke="var(--text-tertiary)" fontSize={12} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "var(--bg-primary)",
-                    border: "1px solid var(--gray-200)",
-                    borderRadius: "var(--radius-md)",
-                    boxShadow: "var(--shadow-lg)",
+                    backgroundColor: 'var(--bg-primary)',
+                    border: '1px solid var(--gray-200)',
+                    borderRadius: 'var(--radius-md)',
+                    boxShadow: 'var(--shadow-lg)',
                   }}
                 />
                 <Area
@@ -240,14 +240,14 @@ const Visualization: React.FC = () => {
               <div className="legend-item">
                 <div
                   className="legend-color"
-                  style={{ backgroundColor: "var(--success)" }}
+                  style={{ backgroundColor: 'var(--success)' }}
                 />
                 <span>Income</span>
               </div>
               <div className="legend-item">
                 <div
                   className="legend-color"
-                  style={{ backgroundColor: "var(--primary-blue)" }}
+                  style={{ backgroundColor: 'var(--primary-blue)' }}
                 />
                 <span>Spending</span>
               </div>
@@ -289,7 +289,7 @@ const Visualization: React.FC = () => {
                       ))}
                     </Pie>
                     <Tooltip
-                      formatter={(value: number) => [`$${value}`, "Amount"]}
+                      formatter={(value: number) => [`$${value}`, 'Amount']}
                     />
                   </RechartsPieChart>
                 </ResponsiveContainer>
@@ -351,9 +351,9 @@ const Visualization: React.FC = () => {
                     <YAxis stroke="var(--text-tertiary)" fontSize={12} />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: "var(--bg-primary)",
-                        border: "1px solid var(--gray-200)",
-                        borderRadius: "var(--radius-md)",
+                        backgroundColor: 'var(--bg-primary)',
+                        border: '1px solid var(--gray-200)',
+                        borderRadius: 'var(--radius-md)',
                       }}
                     />
                     <Bar
@@ -408,12 +408,12 @@ const Visualization: React.FC = () => {
                     <YAxis stroke="var(--text-tertiary)" fontSize={12} />
                     <Tooltip
                       contentStyle={{
-                        backgroundColor: "var(--bg-primary)",
-                        border: "1px solid var(--gray-200)",
-                        borderRadius: "var(--radius-md)",
+                        backgroundColor: 'var(--bg-primary)',
+                        border: '1px solid var(--gray-200)',
+                        borderRadius: 'var(--radius-md)',
                       }}
-                      formatter={(value: number) => [`$${value}`, "Amount"]}
-                      labelFormatter={(label) => `Day ${label}`}
+                      formatter={(value: number) => [`$${value}`, 'Amount']}
+                      labelFormatter={label => `Day ${label}`}
                     />
                     <Line
                       type="monotone"
@@ -421,13 +421,13 @@ const Visualization: React.FC = () => {
                       stroke="var(--secondary-orange)"
                       strokeWidth={3}
                       dot={{
-                        fill: "var(--secondary-orange)",
+                        fill: 'var(--secondary-orange)',
                         strokeWidth: 2,
                         r: 4,
                       }}
                       activeDot={{
                         r: 6,
-                        stroke: "var(--secondary-orange)",
+                        stroke: 'var(--secondary-orange)',
                         strokeWidth: 2,
                       }}
                     />

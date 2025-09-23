@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   DollarSign,
   TrendingUp,
@@ -10,7 +10,7 @@ import {
   BarChart3,
   ArrowUpRight,
   ArrowDownRight,
-} from "lucide-react";
+} from 'lucide-react';
 import {
   LineChart,
   Line,
@@ -24,73 +24,73 @@ import {
   Pie,
   BarChart,
   Bar,
-} from "recharts";
-import "./Dashboard.scss";
+} from 'recharts';
+import './Dashboard.scss';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
 
   // Mock data
   const spendingData = [
-    { month: "Jan", amount: 2400 },
-    { month: "Feb", amount: 1398 },
-    { month: "Mar", amount: 9800 },
-    { month: "Apr", amount: 3908 },
-    { month: "May", amount: 4800 },
-    { month: "Jun", amount: 3800 },
+    { month: 'Jan', amount: 2400 },
+    { month: 'Feb', amount: 1398 },
+    { month: 'Mar', amount: 9800 },
+    { month: 'Apr', amount: 3908 },
+    { month: 'May', amount: 4800 },
+    { month: 'Jun', amount: 3800 },
   ];
 
   const categoryData = [
-    { name: "Food", value: 400, color: "#8884d8" },
-    { name: "Transport", value: 300, color: "#82ca9d" },
-    { name: "Entertainment", value: 200, color: "#ffc658" },
-    { name: "Shopping", value: 278, color: "#ff7c7c" },
-    { name: "Bills", value: 189, color: "#8dd1e1" },
+    { name: 'Food', value: 400, color: '#8884d8' },
+    { name: 'Transport', value: 300, color: '#82ca9d' },
+    { name: 'Entertainment', value: 200, color: '#ffc658' },
+    { name: 'Shopping', value: 278, color: '#ff7c7c' },
+    { name: 'Bills', value: 189, color: '#8dd1e1' },
   ];
 
   const monthlySpending = [
-    { category: "Food", amount: 1200 },
-    { category: "Transport", amount: 800 },
-    { category: "Entertainment", amount: 600 },
-    { category: "Shopping", amount: 900 },
-    { category: "Bills", amount: 1500 },
+    { category: 'Food', amount: 1200 },
+    { category: 'Transport', amount: 800 },
+    { category: 'Entertainment', amount: 600 },
+    { category: 'Shopping', amount: 900 },
+    { category: 'Bills', amount: 1500 },
   ];
 
   const recentTransactions = [
     {
       id: 1,
-      description: "Grocery Store",
+      description: 'Grocery Store',
       amount: -85.5,
-      category: "Food",
-      date: "2024-01-15",
+      category: 'Food',
+      date: '2024-01-15',
     },
     {
       id: 2,
-      description: "Salary Deposit",
+      description: 'Salary Deposit',
       amount: 3500.0,
-      category: "Income",
-      date: "2024-01-15",
+      category: 'Income',
+      date: '2024-01-15',
     },
     {
       id: 3,
-      description: "Gas Station",
+      description: 'Gas Station',
       amount: -45.2,
-      category: "Transport",
-      date: "2024-01-14",
+      category: 'Transport',
+      date: '2024-01-14',
     },
     {
       id: 4,
-      description: "Netflix Subscription",
+      description: 'Netflix Subscription',
       amount: -15.99,
-      category: "Entertainment",
-      date: "2024-01-14",
+      category: 'Entertainment',
+      date: '2024-01-14',
     },
     {
       id: 5,
-      description: "Online Shopping",
+      description: 'Online Shopping',
       amount: -129.99,
-      category: "Shopping",
-      date: "2024-01-13",
+      category: 'Shopping',
+      date: '2024-01-13',
     },
   ];
 
@@ -218,9 +218,9 @@ const Dashboard: React.FC = () => {
                   <YAxis stroke="var(--text-tertiary)" fontSize={12} />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: "var(--bg-primary)",
-                      border: "1px solid var(--gray-200)",
-                      borderRadius: "var(--radius-md)",
+                      backgroundColor: 'var(--bg-primary)',
+                      border: '1px solid var(--gray-200)',
+                      borderRadius: 'var(--radius-md)',
                     }}
                   />
                   <Bar
@@ -284,13 +284,13 @@ const Dashboard: React.FC = () => {
             <h3>Recent Transactions</h3>
             <button
               className="btn btn--sm btn--secondary"
-              onClick={() => navigate("/transactions")}
+              onClick={() => navigate('/transactions')}
             >
               View All
             </button>
           </div>
           <div className="transactions-card__content">
-            {recentTransactions.map((transaction) => (
+            {recentTransactions.map(transaction => (
               <div key={transaction.id} className="transaction-item">
                 <div className="transaction-item__info">
                   <span className="transaction-item__description">
@@ -304,11 +304,11 @@ const Dashboard: React.FC = () => {
                   <span
                     className={`transaction-item__value ${
                       transaction.amount > 0
-                        ? "transaction-item__value--positive"
-                        : "transaction-item__value--negative"
+                        ? 'transaction-item__value--positive'
+                        : 'transaction-item__value--negative'
                     }`}
                   >
-                    {transaction.amount > 0 ? "+" : ""}$
+                    {transaction.amount > 0 ? '+' : ''}$
                     {Math.abs(transaction.amount).toFixed(2)}
                   </span>
                   <span className="transaction-item__date">
@@ -343,9 +343,9 @@ const Dashboard: React.FC = () => {
                 <YAxis stroke="var(--text-tertiary)" fontSize={12} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "var(--bg-primary)",
-                    border: "1px solid var(--gray-200)",
-                    borderRadius: "var(--radius-md)",
+                    backgroundColor: 'var(--bg-primary)',
+                    border: '1px solid var(--gray-200)',
+                    borderRadius: 'var(--radius-md)',
                   }}
                 />
                 <Line
@@ -353,7 +353,7 @@ const Dashboard: React.FC = () => {
                   dataKey="amount"
                   stroke="var(--primary-blue)"
                   strokeWidth={3}
-                  dot={{ fill: "var(--primary-blue)", strokeWidth: 2, r: 6 }}
+                  dot={{ fill: 'var(--primary-blue)', strokeWidth: 2, r: 6 }}
                 />
               </LineChart>
             </ResponsiveContainer>

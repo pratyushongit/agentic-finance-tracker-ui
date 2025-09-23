@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Sidebar from "../Sidebar/Sidebar";
-import Header from "../Header/Header";
-import ChatPanel from "../ChatPanel/ChatPanel";
-import "./Layout.scss";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Sidebar from '../Sidebar/Sidebar';
+import Header from '../Header/Header';
+import ChatPanel from '../ChatPanel/ChatPanel';
+import './Layout.scss';
 
 interface LayoutProps {
   children: React.ReactNode;

@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Menu, Bell, Moon, Sun, MessageCircle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { useTheme } from "../../contexts";
+import React, { useState, useRef, useEffect } from 'react';
+import { Menu, Bell, Moon, Sun, MessageCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../../contexts';
 import NotificationPanel, {
   Notification,
-} from "../NotificationPanel/NotificationPanel";
-import "./Header.scss";
+} from '../NotificationPanel/NotificationPanel';
+import './Header.scss';
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -19,27 +19,27 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, onChatClick }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([
     {
-      id: "1",
-      type: "budget",
-      title: "Budget Alert",
+      id: '1',
+      type: 'budget',
+      title: 'Budget Alert',
       message: "You've spent 85% of your monthly food budget",
       timestamp: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago
       isRead: false,
       amount: 1020,
     },
     {
-      id: "2",
-      type: "transaction",
-      title: "Large Transaction",
-      message: "New transaction detected: Online Shopping",
+      id: '2',
+      type: 'transaction',
+      title: 'Large Transaction',
+      message: 'New transaction detected: Online Shopping',
       timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
       isRead: false,
       amount: -299.99,
     },
     {
-      id: "3",
-      type: "achievement",
-      title: "Savings Goal",
+      id: '3',
+      type: 'achievement',
+      title: 'Savings Goal',
       message:
         "Congratulations! You've reached 75% of your monthly savings goal",
       timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
@@ -47,10 +47,10 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, onChatClick }) => {
       amount: 1500,
     },
     {
-      id: "4",
-      type: "alert",
-      title: "Unusual Activity",
-      message: "Multiple transactions detected in Entertainment category",
+      id: '4',
+      type: 'alert',
+      title: 'Unusual Activity',
+      message: 'Multiple transactions detected in Entertainment category',
       timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
       isRead: true,
     },
@@ -63,8 +63,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, onChatClick }) => {
   };
 
   const markAsRead = (id: string) => {
-    setNotifications((prev) =>
-      prev.map((notification) =>
+    setNotifications(prev =>
+      prev.map(notification =>
         notification.id === id
           ? { ...notification, isRead: true }
           : notification
@@ -73,23 +73,23 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, onChatClick }) => {
   };
 
   const markAllAsRead = () => {
-    setNotifications((prev) =>
-      prev.map((notification) => ({ ...notification, isRead: true }))
+    setNotifications(prev =>
+      prev.map(notification => ({ ...notification, isRead: true }))
     );
   };
 
   const dismissNotification = (id: string) => {
-    setNotifications((prev) =>
-      prev.filter((notification) => notification.id !== id)
+    setNotifications(prev =>
+      prev.filter(notification => notification.id !== id)
     );
   };
 
   const handleViewAll = () => {
     setShowNotifications(false);
-    navigate("/notifications");
+    navigate('/notifications');
   };
 
-  const unreadCount = notifications.filter((n) => !n.isRead).length;
+  const unreadCount = notifications.filter(n => !n.isRead).length;
 
   // Close notifications when clicking outside
   useEffect(() => {
@@ -102,8 +102,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, onChatClick }) => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
@@ -143,7 +143,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick, onChatClick }) => {
         <div className="header__notifications" ref={notificationRef}>
           <button
             className={`header__action-btn ${
-              showNotifications ? "header__action-btn--active" : ""
+              showNotifications ? 'header__action-btn--active' : ''
             }`}
             onClick={toggleNotifications}
             aria-label="Notifications"

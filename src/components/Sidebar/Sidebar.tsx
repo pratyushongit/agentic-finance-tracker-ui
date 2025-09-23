@@ -1,8 +1,8 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { Home, Upload, BarChart3, Bell, X, TrendingUp } from "lucide-react";
-import "./Sidebar.scss";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Home, Upload, BarChart3, Bell, X, TrendingUp } from 'lucide-react';
+import './Sidebar.scss';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -11,28 +11,28 @@ interface SidebarProps {
 
 const navigationItems = [
   {
-    title: "Dashboard",
+    title: 'Dashboard',
     icon: Home,
-    path: "/",
-    description: "Overview & Analytics",
+    path: '/',
+    description: 'Overview & Analytics',
   },
   {
-    title: "Input Sources",
+    title: 'Input Sources',
     icon: Upload,
-    path: "/input-sources",
-    description: "Data Import & Management",
+    path: '/input-sources',
+    description: 'Data Import & Management',
   },
   {
-    title: "Visualization",
+    title: 'Visualization',
     icon: BarChart3,
-    path: "/visualization",
-    description: "Charts & Reports",
+    path: '/visualization',
+    description: 'Charts & Reports',
   },
   {
-    title: "Alerts & Notifications",
+    title: 'Alerts & Notifications',
     icon: Bell,
-    path: "/alerts",
-    description: "Budget & Anomaly Alerts",
+    path: '/alerts',
+    description: 'Budget & Anomaly Alerts',
   },
 ];
 
@@ -41,15 +41,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     open: {
       x: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 300,
         damping: 30,
       },
     },
     closed: {
-      x: "-100%",
+      x: '-100%',
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 300,
         damping: 30,
       },
@@ -81,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       <motion.aside
         className="sidebar"
         initial="closed"
-        animate={isOpen ? "open" : "closed"}
+        animate={isOpen ? 'open' : 'closed'}
         variants={sidebarVariants}
       >
         <div className="sidebar__header">
@@ -102,13 +102,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         </div>
 
         <nav className="sidebar__nav">
-          {navigationItems.map((item) => (
+          {navigationItems.map(item => (
             <NavLink
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
                 `sidebar__nav-item ${
-                  isActive ? "sidebar__nav-item--active" : ""
+                  isActive ? 'sidebar__nav-item--active' : ''
                 }`
               }
               onClick={() => window.innerWidth < 1024 && onClose()}

@@ -1,4 +1,4 @@
-@import "../../../styles/variables.scss";
+@import '../../../styles/variables.scss';
 
 .chat-panel {
   &__messages {
@@ -17,7 +17,7 @@
       background: var(--gray-100);
       border-radius: 3px;
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         background: var(--gray-800);
       }
     }
@@ -26,14 +26,14 @@
       background: var(--gray-300);
       border-radius: 3px;
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         background: var(--gray-600);
       }
 
       &:hover {
         background: var(--gray-400);
 
-        [data-theme="dark"] & {
+        [data-theme='dark'] & {
           background: var(--gray-500);
         }
       }
@@ -64,7 +64,7 @@
       rgba(59, 130, 246, 0.05) 100%
     );
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       background: linear-gradient(
         135deg,
         rgba(59, 130, 246, 0.12) 0%,
@@ -76,7 +76,7 @@
 
     // Animated gradient overlay
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -91,7 +91,7 @@
       animation: shimmer 3s ease-in-out infinite;
       pointer-events: none;
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         background: linear-gradient(
           45deg,
           transparent 30%,
@@ -143,17 +143,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3),
+      box-shadow:
+        0 8px 32px rgba(59, 130, 246, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.1);
       animation: float 3s ease-in-out infinite;
 
-      [data-theme="dark"] & {
-        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4),
+      [data-theme='dark'] & {
+        box-shadow:
+          0 8px 32px rgba(59, 130, 246, 0.4),
           0 0 0 1px rgba(255, 255, 255, 0.1);
       }
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: -2px;
         left: -2px;
@@ -177,12 +179,12 @@
       z-index: 2;
 
       // Ensure good contrast in both themes
-      [data-theme="light"] & {
+      [data-theme='light'] & {
         color: white;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
       }
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         color: white;
       }
     }
@@ -251,12 +253,14 @@
   border-radius: var(--radius-lg);
   white-space: nowrap;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.06);
   position: relative;
   overflow: hidden;
   font-weight: 500;
 
-  [data-theme="dark"] & {
+  [data-theme='dark'] & {
     background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.05) 0%,
@@ -264,12 +268,14 @@
     );
     border-color: var(--gray-700);
     color: var(--text-dark-primary);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      0 1px 3px rgba(0, 0, 0, 0.3);
   }
 
   // Subtle shine effect
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: -100%;
@@ -293,23 +299,25 @@
     color: white;
     border-color: var(--primary-blue);
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25),
+    box-shadow:
+      0 8px 25px rgba(59, 130, 246, 0.25),
       0 4px 12px rgba(0, 0, 0, 0.1);
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       background: linear-gradient(
         135deg,
         var(--primary-blue) 0%,
         var(--primary-purple) 100%
       );
       border-color: var(--primary-blue);
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35),
+      box-shadow:
+        0 8px 25px rgba(59, 130, 246, 0.35),
         0 4px 12px rgba(0, 0, 0, 0.3);
       color: white;
     }
 
     // Ensure white text is visible in both themes
-    [data-theme="light"] & {
+    [data-theme='light'] & {
       color: white;
     }
 
@@ -361,7 +369,7 @@
       color: var(--text-primary);
       margin-right: var(--spacing-xl);
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         background: var(--gray-800);
       }
     }
@@ -385,7 +393,7 @@
       background: var(--gray-200);
       color: var(--text-secondary);
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         background: var(--gray-700);
         color: var(--text-tertiary);
       }
@@ -429,7 +437,7 @@
       padding-left: var(--spacing-md);
 
       &::before {
-        content: "•";
+        content: '•';
         position: absolute;
         left: 0;
         color: var(--primary-blue);
@@ -439,7 +447,7 @@
     &--typing {
       background: var(--bg-tertiary);
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         background: var(--gray-800);
       }
     }

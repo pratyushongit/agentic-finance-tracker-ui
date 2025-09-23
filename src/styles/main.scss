@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@import "./variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import './variables.scss';
 
 // Reset and base styles
 * {
@@ -21,7 +21,8 @@ body {
   background-color: var(--bg-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color var(--transition-normal),
+  transition:
+    background-color var(--transition-normal),
     color var(--transition-normal);
 }
 
@@ -95,7 +96,7 @@ a {
       background-color: var(--gray-50);
     }
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       border-color: var(--gray-600);
 
       &:hover:not(:disabled) {
@@ -170,7 +171,7 @@ a {
     border-top: 1px solid var(--gray-200);
     padding-top: var(--spacing-lg);
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       border-color: var(--gray-700);
     }
   }
@@ -209,7 +210,7 @@ a {
     color: var(--text-tertiary);
   }
 
-  [data-theme="dark"] & {
+  [data-theme='dark'] & {
     border-color: var(--gray-600);
 
     &:focus {
@@ -229,7 +230,7 @@ select.form-input {
   appearance: none;
   cursor: pointer;
 
-  [data-theme="dark"] & {
+  [data-theme='dark'] & {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%94a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   }
 }
@@ -271,7 +272,7 @@ select.form-input {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @include respond-to("md") {
+  @include respond-to('md') {
     &--responsive-2 {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -353,7 +354,7 @@ select.form-input {
   display: none;
 }
 
-@include respond-to("md") {
+@include respond-to('md') {
   .md\:block {
     display: block;
   }
@@ -365,7 +366,7 @@ select.form-input {
   }
 }
 
-@include respond-to("lg") {
+@include respond-to('lg') {
   .lg\:block {
     display: block;
   }
@@ -397,7 +398,7 @@ select.form-input {
   }
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   ::-webkit-scrollbar-track {
     background: var(--gray-800);
   }

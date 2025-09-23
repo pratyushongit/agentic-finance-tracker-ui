@@ -1,11 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Bot, User } from "lucide-react";
-import "./ChatMessages.scss";
+import React, { useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Bot, User } from 'lucide-react';
+import './ChatMessages.scss';
 
 interface Message {
   id: string;
-  type: "user" | "bot";
+  type: 'user' | 'bot';
   content: string;
   timestamp: Date;
   isLoading?: boolean;
@@ -27,7 +27,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -76,8 +76,8 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
                 scaleY: 1,
                 marginTop: 0,
                 marginBottom: 0,
-                paddingTop: "var(--spacing-md)",
-                paddingBottom: "var(--spacing-md)",
+                paddingTop: 'var(--spacing-md)',
+                paddingBottom: 'var(--spacing-md)',
               }}
               exit={{
                 opacity: 0,
@@ -87,8 +87,8 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
                 paddingTop: 0,
                 paddingBottom: 0,
               }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
-              style={{ transformOrigin: "top" }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              style={{ transformOrigin: 'top' }}
             >
               <div className="suggestions-grid">
                 {suggestedQuestions.map((question, index) => (
@@ -110,7 +110,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
       ) : (
         <>
           <AnimatePresence>
-            {messages.map((message) => (
+            {messages.map(message => (
               <motion.div
                 key={message.id}
                 className={`message message--${message.type}`}
@@ -120,7 +120,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
                 transition={{ duration: 0.3 }}
               >
                 <div className="message__avatar">
-                  {message.type === "user" ? (
+                  {message.type === 'user' ? (
                     <User size={16} />
                   ) : (
                     <Bot size={16} />
@@ -128,11 +128,11 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
                 </div>
                 <div className="message__content">
                   <div className="message__bubble">
-                    {message.content.split("\n").map((line, index) => {
-                      if (line.startsWith("**") && line.endsWith("**")) {
+                    {message.content.split('\n').map((line, index) => {
+                      if (line.startsWith('**') && line.endsWith('**')) {
                         return <strong key={index}>{line.slice(2, -2)}</strong>;
                       }
-                      if (line.startsWith("• ")) {
+                      if (line.startsWith('• ')) {
                         return <li key={index}>{line.slice(2)}</li>;
                       }
                       if (line.match(/^\d+\./)) {
@@ -151,8 +151,8 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
                   </div>
                   <span className="message__timestamp">
                     {message.timestamp.toLocaleTimeString([], {
-                      hour: "2-digit",
-                      minute: "2-digit",
+                      hour: '2-digit',
+                      minute: '2-digit',
                     })}
                   </span>
                 </div>

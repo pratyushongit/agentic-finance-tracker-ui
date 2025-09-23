@@ -10,7 +10,7 @@
     flex-direction: column;
     min-width: 0; // Prevent flex item from overflowing
     height: calc(100vh - 64px); // Available height minus header
-    
+
     @include respond-to('lg') {
       margin-left: 240px; // Sidebar width (reduced for compact UI)
     }

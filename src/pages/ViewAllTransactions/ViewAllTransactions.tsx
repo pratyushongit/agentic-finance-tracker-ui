@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   ArrowLeft,
   Filter,
@@ -16,9 +16,9 @@ import {
   Coffee,
   Gamepad2,
   X,
-} from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import "./ViewAllTransactions.scss";
+} from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import './ViewAllTransactions.scss';
 
 interface Transaction {
   id: number;
@@ -26,7 +26,7 @@ interface Transaction {
   amount: number;
   category: string;
   date: string;
-  type: "income" | "expense";
+  type: 'income' | 'expense';
   merchant?: string;
   account?: string;
 }
@@ -37,142 +37,142 @@ const ViewAllTransactions: React.FC = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([
     {
       id: 1,
-      description: "Grocery Store",
+      description: 'Grocery Store',
       amount: -85.5,
-      category: "Food",
-      date: "2024-01-15",
-      type: "expense",
-      merchant: "Whole Foods Market",
-      account: "Chase Checking",
+      category: 'Food',
+      date: '2024-01-15',
+      type: 'expense',
+      merchant: 'Whole Foods Market',
+      account: 'Chase Checking',
     },
     {
       id: 2,
-      description: "Salary Deposit",
+      description: 'Salary Deposit',
       amount: 3500.0,
-      category: "Income",
-      date: "2024-01-15",
-      type: "income",
-      merchant: "ABC Company",
-      account: "Chase Checking",
+      category: 'Income',
+      date: '2024-01-15',
+      type: 'income',
+      merchant: 'ABC Company',
+      account: 'Chase Checking',
     },
     {
       id: 3,
-      description: "Gas Station",
+      description: 'Gas Station',
       amount: -45.2,
-      category: "Transport",
-      date: "2024-01-14",
-      type: "expense",
-      merchant: "Shell Gas Station",
-      account: "Chase Checking",
+      category: 'Transport',
+      date: '2024-01-14',
+      type: 'expense',
+      merchant: 'Shell Gas Station',
+      account: 'Chase Checking',
     },
     {
       id: 4,
-      description: "Netflix Subscription",
+      description: 'Netflix Subscription',
       amount: -15.99,
-      category: "Entertainment",
-      date: "2024-01-14",
-      type: "expense",
-      merchant: "Netflix Inc.",
-      account: "Chase Credit Card",
+      category: 'Entertainment',
+      date: '2024-01-14',
+      type: 'expense',
+      merchant: 'Netflix Inc.',
+      account: 'Chase Credit Card',
     },
     {
       id: 5,
-      description: "Online Shopping",
+      description: 'Online Shopping',
       amount: -129.99,
-      category: "Shopping",
-      date: "2024-01-13",
-      type: "expense",
-      merchant: "Amazon",
-      account: "Chase Credit Card",
+      category: 'Shopping',
+      date: '2024-01-13',
+      type: 'expense',
+      merchant: 'Amazon',
+      account: 'Chase Credit Card',
     },
     {
       id: 6,
-      description: "Freelance Payment",
+      description: 'Freelance Payment',
       amount: 750.0,
-      category: "Income",
-      date: "2024-01-12",
-      type: "income",
-      merchant: "XYZ Client",
-      account: "Chase Checking",
+      category: 'Income',
+      date: '2024-01-12',
+      type: 'income',
+      merchant: 'XYZ Client',
+      account: 'Chase Checking',
     },
     {
       id: 7,
-      description: "Coffee Shop",
+      description: 'Coffee Shop',
       amount: -12.45,
-      category: "Food",
-      date: "2024-01-12",
-      type: "expense",
-      merchant: "Starbucks",
-      account: "Chase Checking",
+      category: 'Food',
+      date: '2024-01-12',
+      type: 'expense',
+      merchant: 'Starbucks',
+      account: 'Chase Checking',
     },
     {
       id: 8,
-      description: "Uber Ride",
+      description: 'Uber Ride',
       amount: -18.75,
-      category: "Transport",
-      date: "2024-01-11",
-      type: "expense",
-      merchant: "Uber Technologies",
-      account: "Chase Credit Card",
+      category: 'Transport',
+      date: '2024-01-11',
+      type: 'expense',
+      merchant: 'Uber Technologies',
+      account: 'Chase Credit Card',
     },
     {
       id: 9,
-      description: "Rent Payment",
+      description: 'Rent Payment',
       amount: -1200.0,
-      category: "Housing",
-      date: "2024-01-10",
-      type: "expense",
-      merchant: "Property Management Co.",
-      account: "Chase Checking",
+      category: 'Housing',
+      date: '2024-01-10',
+      type: 'expense',
+      merchant: 'Property Management Co.',
+      account: 'Chase Checking',
     },
     {
       id: 10,
-      description: "Investment Dividend",
+      description: 'Investment Dividend',
       amount: 85.3,
-      category: "Income",
-      date: "2024-01-09",
-      type: "income",
-      merchant: "Vanguard",
-      account: "Investment Account",
+      category: 'Income',
+      date: '2024-01-09',
+      type: 'income',
+      merchant: 'Vanguard',
+      account: 'Investment Account',
     },
   ]);
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedType, setSelectedType] = useState("all");
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedType, setSelectedType] = useState('all');
   const [showFilters, setShowFilters] = useState(false);
 
   const categories = [
-    "all",
-    "Food",
-    "Transport",
-    "Entertainment",
-    "Shopping",
-    "Income",
-    "Housing",
+    'all',
+    'Food',
+    'Transport',
+    'Entertainment',
+    'Shopping',
+    'Income',
+    'Housing',
   ];
-  const types = ["all", "income", "expense"];
+  const types = ['all', 'income', 'expense'];
 
   const getCategoryIcon = (category: string) => {
     switch (category.toLowerCase()) {
-      case "food":
+      case 'food':
         return <Coffee size={16} />;
-      case "transport":
+      case 'transport':
         return <Car size={16} />;
-      case "entertainment":
+      case 'entertainment':
         return <Gamepad2 size={16} />;
-      case "shopping":
+      case 'shopping':
         return <ShoppingBag size={16} />;
-      case "income":
+      case 'income':
         return <TrendingUp size={16} />;
-      case "housing":
+      case 'housing':
         return <Home size={16} />;
       default:
         return <DollarSign size={16} />;
     }
   };
 
-  const filteredTransactions = transactions.filter((transaction) => {
+  const filteredTransactions = transactions.filter(transaction => {
     const matchesSearch =
       transaction.description
         .toLowerCase()
@@ -180,19 +180,19 @@ const ViewAllTransactions: React.FC = () => {
       transaction.merchant?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       transaction.category.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory =
-      selectedCategory === "all" || transaction.category === selectedCategory;
+      selectedCategory === 'all' || transaction.category === selectedCategory;
     const matchesType =
-      selectedType === "all" || transaction.type === selectedType;
+      selectedType === 'all' || transaction.type === selectedType;
 
     return matchesSearch && matchesCategory && matchesType;
   });
 
   const totalIncome = transactions
-    .filter((t) => t.type === "income")
+    .filter(t => t.type === 'income')
     .reduce((sum, t) => sum + t.amount, 0);
 
   const totalExpenses = transactions
-    .filter((t) => t.type === "expense")
+    .filter(t => t.type === 'expense')
     .reduce((sum, t) => sum + Math.abs(t.amount), 0);
 
   const containerVariants = {
@@ -238,7 +238,7 @@ const ViewAllTransactions: React.FC = () => {
         <div className="header-top">
           <button
             className="btn btn--ghost btn--icon"
-            onClick={() => navigate("/")}
+            onClick={() => navigate('/')}
           >
             <ArrowLeft size={20} />
           </button>
@@ -283,10 +283,10 @@ const ViewAllTransactions: React.FC = () => {
               <span className="summary-card__label">Net Amount</span>
               <span
                 className={`summary-card__value ${
-                  totalIncome - totalExpenses >= 0 ? "positive" : "negative"
+                  totalIncome - totalExpenses >= 0 ? 'positive' : 'negative'
                 }`}
               >
-                {totalIncome - totalExpenses >= 0 ? "+" : ""}$
+                {totalIncome - totalExpenses >= 0 ? '+' : ''}$
                 {(totalIncome - totalExpenses).toFixed(2)}
               </span>
             </div>
@@ -305,13 +305,13 @@ const ViewAllTransactions: React.FC = () => {
             type="text"
             placeholder="Search transactions..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={e => setSearchTerm(e.target.value)}
             className="search-input"
           />
         </div>
 
         <button
-          className={`btn btn--secondary ${showFilters ? "active" : ""}`}
+          className={`btn btn--secondary ${showFilters ? 'active' : ''}`}
           onClick={() => setShowFilters(!showFilters)}
         >
           <Filter size={16} />
@@ -324,7 +324,7 @@ const ViewAllTransactions: React.FC = () => {
         <motion.div
           className="filter-panel"
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
+          animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           variants={itemVariants}
         >
@@ -332,12 +332,12 @@ const ViewAllTransactions: React.FC = () => {
             <label>Category</label>
             <select
               value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              onChange={e => setSelectedCategory(e.target.value)}
               className="filter-select"
             >
-              {categories.map((category) => (
+              {categories.map(category => (
                 <option key={category} value={category}>
-                  {category === "all" ? "All Categories" : category}
+                  {category === 'all' ? 'All Categories' : category}
                 </option>
               ))}
             </select>
@@ -347,13 +347,13 @@ const ViewAllTransactions: React.FC = () => {
             <label>Type</label>
             <select
               value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
+              onChange={e => setSelectedType(e.target.value)}
               className="filter-select"
             >
-              {types.map((type) => (
+              {types.map(type => (
                 <option key={type} value={type}>
-                  {type === "all"
-                    ? "All Types"
+                  {type === 'all'
+                    ? 'All Types'
                     : type.charAt(0).toUpperCase() + type.slice(1)}
                 </option>
               ))}
@@ -363,9 +363,9 @@ const ViewAllTransactions: React.FC = () => {
           <button
             className="btn btn--ghost btn--sm"
             onClick={() => {
-              setSelectedCategory("all");
-              setSelectedType("all");
-              setSearchTerm("");
+              setSelectedCategory('all');
+              setSelectedType('all');
+              setSearchTerm('');
             }}
           >
             <X size={16} />
@@ -377,7 +377,7 @@ const ViewAllTransactions: React.FC = () => {
       {/* Results Count */}
       <motion.div className="results-info" variants={itemVariants}>
         <span>
-          Showing {filteredTransactions.length} of {transactions.length}{" "}
+          Showing {filteredTransactions.length} of {transactions.length}{' '}
           transactions
         </span>
       </motion.div>
@@ -422,10 +422,10 @@ const ViewAllTransactions: React.FC = () => {
                   <div className="transaction-row__amount">
                     <span
                       className={`amount ${
-                        transaction.type === "income" ? "positive" : "negative"
+                        transaction.type === 'income' ? 'positive' : 'negative'
                       }`}
                     >
-                      {transaction.amount > 0 ? "+" : ""}$
+                      {transaction.amount > 0 ? '+' : ''}$
                       {Math.abs(transaction.amount).toFixed(2)}
                     </span>
                   </div>

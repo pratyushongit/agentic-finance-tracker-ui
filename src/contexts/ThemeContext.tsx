@@ -4,9 +4,9 @@ import React, {
   useEffect,
   useState,
   ReactNode,
-} from "react";
+} from 'react';
 
-type Theme = "light" | "dark";
+type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
   theme: Theme;
@@ -23,25 +23,25 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   // Set dark as default, but check localStorage for saved preference
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    return savedTheme || "dark"; // Default to dark theme
+    const savedTheme = localStorage.getItem('theme') as Theme;
+    return savedTheme || 'dark'; // Default to dark theme
   });
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-  const isDarkMode = theme === "dark";
+  const isDarkMode = theme === 'dark';
 
   // Apply theme to document and save to localStorage
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   // Set initial theme on mount
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.setAttribute('data-theme', theme);
   }, []);
 
   const value: ThemeContextType = {
@@ -58,7 +58,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+    throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
 };

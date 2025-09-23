@@ -1,4 +1,4 @@
-@import "../../../styles/variables.scss";
+@import '../../../styles/variables.scss';
 
 .chat-panel {
   &__header {
@@ -7,7 +7,7 @@
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--gray-200);
 
-    [data-theme="dark"] & {
+    [data-theme='dark'] & {
       border-color: var(--gray-700);
     }
   }
@@ -62,7 +62,7 @@
       color: var(--text-primary);
       background-color: var(--gray-100);
 
-      [data-theme="dark"] & {
+      [data-theme='dark'] & {
         background-color: var(--gray-800);
       }
     }

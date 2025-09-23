@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   Bell,
   AlertTriangle,
@@ -11,13 +11,13 @@ import {
   X,
   CheckCircle,
   Zap,
-} from "lucide-react";
-import "./Alerts.scss";
+} from 'lucide-react';
+import './Alerts.scss';
 
 interface Alert {
   id: string;
-  type: "budget" | "anomaly" | "goal" | "bill" | "income";
-  severity: "low" | "medium" | "high" | "critical";
+  type: 'budget' | 'anomaly' | 'goal' | 'bill' | 'income';
+  severity: 'low' | 'medium' | 'high' | 'critical';
   title: string;
   message: string;
   timestamp: Date;
@@ -30,7 +30,7 @@ interface Alert {
 interface AlertRule {
   id: string;
   name: string;
-  type: "budget" | "spending" | "income" | "goal";
+  type: 'budget' | 'spending' | 'income' | 'goal';
   condition: string;
   threshold: number;
   category?: string;
@@ -40,58 +40,58 @@ interface AlertRule {
 const Alerts: React.FC = () => {
   const [alerts, setAlerts] = useState<Alert[]>([
     {
-      id: "1",
-      type: "budget",
-      severity: "high",
-      title: "Budget Exceeded",
+      id: '1',
+      type: 'budget',
+      severity: 'high',
+      title: 'Budget Exceeded',
       message:
-        "You have exceeded your Food & Dining budget by $200 this month.",
-      timestamp: new Date("2024-01-15T10:30:00"),
+        'You have exceeded your Food & Dining budget by $200 this month.',
+      timestamp: new Date('2024-01-15T10:30:00'),
       isRead: false,
-      category: "Food & Dining",
+      category: 'Food & Dining',
       amount: 200,
       actionRequired: true,
     },
     {
-      id: "2",
-      type: "anomaly",
-      severity: "medium",
-      title: "Unusual Spending Pattern",
-      message: "Your shopping expenses are 150% higher than usual this week.",
-      timestamp: new Date("2024-01-15T09:15:00"),
+      id: '2',
+      type: 'anomaly',
+      severity: 'medium',
+      title: 'Unusual Spending Pattern',
+      message: 'Your shopping expenses are 150% higher than usual this week.',
+      timestamp: new Date('2024-01-15T09:15:00'),
       isRead: false,
-      category: "Shopping",
+      category: 'Shopping',
       actionRequired: false,
     },
     {
-      id: "3",
-      type: "goal",
-      severity: "low",
-      title: "Savings Goal Progress",
+      id: '3',
+      type: 'goal',
+      severity: 'low',
+      title: 'Savings Goal Progress',
       message: "Great job! You're 75% towards your emergency fund goal.",
-      timestamp: new Date("2024-01-14T16:45:00"),
+      timestamp: new Date('2024-01-14T16:45:00'),
       isRead: true,
       amount: 7500,
       actionRequired: false,
     },
     {
-      id: "4",
-      type: "bill",
-      severity: "critical",
-      title: "Upcoming Bill Payment",
-      message: "Your credit card payment of $1,250 is due in 2 days.",
-      timestamp: new Date("2024-01-13T08:00:00"),
+      id: '4',
+      type: 'bill',
+      severity: 'critical',
+      title: 'Upcoming Bill Payment',
+      message: 'Your credit card payment of $1,250 is due in 2 days.',
+      timestamp: new Date('2024-01-13T08:00:00'),
       isRead: false,
       amount: 1250,
       actionRequired: true,
     },
     {
-      id: "5",
-      type: "income",
-      severity: "low",
-      title: "Income Received",
-      message: "Salary deposit of $3,500 has been processed.",
-      timestamp: new Date("2024-01-12T12:00:00"),
+      id: '5',
+      type: 'income',
+      severity: 'low',
+      title: 'Income Received',
+      message: 'Salary deposit of $3,500 has been processed.',
+      timestamp: new Date('2024-01-12T12:00:00'),
       isRead: true,
       amount: 3500,
       actionRequired: false,
@@ -100,56 +100,56 @@ const Alerts: React.FC = () => {
 
   const [alertRules, setAlertRules] = useState<AlertRule[]>([
     {
-      id: "1",
-      name: "Food Budget Alert",
-      type: "budget",
-      condition: "exceeds",
+      id: '1',
+      name: 'Food Budget Alert',
+      type: 'budget',
+      condition: 'exceeds',
       threshold: 1000,
-      category: "Food & Dining",
+      category: 'Food & Dining',
       isActive: true,
     },
     {
-      id: "2",
-      name: "High Spending Day",
-      type: "spending",
-      condition: "daily_exceeds",
+      id: '2',
+      name: 'High Spending Day',
+      type: 'spending',
+      condition: 'daily_exceeds',
       threshold: 200,
       isActive: true,
     },
     {
-      id: "3",
-      name: "Low Income Month",
-      type: "income",
-      condition: "below",
+      id: '3',
+      name: 'Low Income Month',
+      type: 'income',
+      condition: 'below',
       threshold: 3000,
       isActive: true,
     },
     {
-      id: "4",
-      name: "Savings Goal Milestone",
-      type: "goal",
-      condition: "reaches",
+      id: '4',
+      name: 'Savings Goal Milestone',
+      type: 'goal',
+      condition: 'reaches',
       threshold: 10000,
       isActive: true,
     },
   ]);
 
-  const [activeTab, setActiveTab] = useState<"alerts" | "rules">("alerts");
+  const [activeTab, setActiveTab] = useState<'alerts' | 'rules'>('alerts');
   const [showNewRuleForm, setShowNewRuleForm] = useState(false);
 
   const getAlertIcon = (type: string, severity: string) => {
     const iconProps = { size: 20 };
 
     switch (type) {
-      case "budget":
+      case 'budget':
         return <DollarSign {...iconProps} />;
-      case "anomaly":
+      case 'anomaly':
         return <AlertTriangle {...iconProps} />;
-      case "goal":
+      case 'goal':
         return <TrendingUp {...iconProps} />;
-      case "bill":
+      case 'bill':
         return <Calendar {...iconProps} />;
-      case "income":
+      case 'income':
         return <Zap {...iconProps} />;
       default:
         return <Bell {...iconProps} />;
@@ -158,42 +158,42 @@ const Alerts: React.FC = () => {
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
-      case "critical":
-        return "var(--error)";
-      case "high":
-        return "#ff6b35";
-      case "medium":
-        return "var(--warning)";
-      case "low":
-        return "var(--info)";
+      case 'critical':
+        return 'var(--error)';
+      case 'high':
+        return '#ff6b35';
+      case 'medium':
+        return 'var(--warning)';
+      case 'low':
+        return 'var(--info)';
       default:
-        return "var(--text-tertiary)";
+        return 'var(--text-tertiary)';
     }
   };
 
   const markAsRead = (alertId: string) => {
-    setAlerts((prev) =>
-      prev.map((alert) =>
+    setAlerts(prev =>
+      prev.map(alert =>
         alert.id === alertId ? { ...alert, isRead: true } : alert
       )
     );
   };
 
   const dismissAlert = (alertId: string) => {
-    setAlerts((prev) => prev.filter((alert) => alert.id !== alertId));
+    setAlerts(prev => prev.filter(alert => alert.id !== alertId));
   };
 
   const toggleRule = (ruleId: string) => {
-    setAlertRules((prev) =>
-      prev.map((rule) =>
+    setAlertRules(prev =>
+      prev.map(rule =>
         rule.id === ruleId ? { ...rule, isActive: !rule.isActive } : rule
       )
     );
   };
 
-  const unreadCount = alerts.filter((alert) => !alert.isRead).length;
+  const unreadCount = alerts.filter(alert => !alert.isRead).length;
   const criticalCount = alerts.filter(
-    (alert) => alert.severity === "critical"
+    alert => alert.severity === 'critical'
   ).length;
 
   const containerVariants = {
@@ -242,25 +242,25 @@ const Alerts: React.FC = () => {
       <motion.div className="alerts__tabs" variants={itemVariants}>
         <button
           className={`tab-btn ${
-            activeTab === "alerts" ? "tab-btn--active" : ""
+            activeTab === 'alerts' ? 'tab-btn--active' : ''
           }`}
-          onClick={() => setActiveTab("alerts")}
+          onClick={() => setActiveTab('alerts')}
         >
           <Bell size={16} />
           Recent Alerts
         </button>
         <button
           className={`tab-btn ${
-            activeTab === "rules" ? "tab-btn--active" : ""
+            activeTab === 'rules' ? 'tab-btn--active' : ''
           }`}
-          onClick={() => setActiveTab("rules")}
+          onClick={() => setActiveTab('rules')}
         >
           <Settings size={16} />
           Alert Rules
         </button>
       </motion.div>
 
-      {activeTab === "alerts" && (
+      {activeTab === 'alerts' && (
         <motion.div className="alerts__content" variants={itemVariants}>
           {/* Quick Actions */}
           <div className="quick-actions">
@@ -280,13 +280,13 @@ const Alerts: React.FC = () => {
                 <p>You're all caught up! New alerts will appear here.</p>
               </div>
             ) : (
-              alerts.map((alert) => (
+              alerts.map(alert => (
                 <motion.div
                   key={alert.id}
                   className={`alert-item alert-item--${
                     alert.type
                   } alert-item--${alert.severity} ${
-                    !alert.isRead ? "alert-item--unread" : ""
+                    !alert.isRead ? 'alert-item--unread' : ''
                   }`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -365,7 +365,7 @@ const Alerts: React.FC = () => {
         </motion.div>
       )}
 
-      {activeTab === "rules" && (
+      {activeTab === 'rules' && (
         <motion.div className="alerts__content" variants={itemVariants}>
           {/* Rules Header */}
           <div className="rules-header">
@@ -384,7 +384,7 @@ const Alerts: React.FC = () => {
 
           {/* Rules List */}
           <div className="rules-list">
-            {alertRules.map((rule) => (
+            {alertRules.map(rule => (
               <div key={rule.id} className="rule-item">
                 <div className="rule-item__content">
                   <div className="rule-item__header">

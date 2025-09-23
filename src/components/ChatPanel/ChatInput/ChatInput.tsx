@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
-import { Send, Paperclip, Mic, MicOff } from "lucide-react";
-import "./ChatInput.scss";
+import React, { useRef, useEffect } from 'react';
+import { Send, Paperclip, Mic, MicOff } from 'lucide-react';
+import './ChatInput.scss';
 
 interface ChatInputProps {
   inputValue: string;
@@ -42,7 +42,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
           ref={inputRef}
           type="text"
           value={inputValue}
-          onChange={(e) => onInputChange(e.target.value)}
+          onChange={e => onInputChange(e.target.value)}
           onKeyPress={onKeyPress}
           placeholder="Ask about your finances..."
           className="chat-input"
@@ -50,7 +50,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
 
         <button
           className={`input-action-btn ${
-            isRecording ? "input-action-btn--recording" : ""
+            isRecording ? 'input-action-btn--recording' : ''
           }`}
           onClick={onToggleRecording}
           aria-label="Voice input"
