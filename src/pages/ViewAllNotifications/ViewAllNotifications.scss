@@ -2,19 +2,19 @@
   height: 100%;
   overflow-y: auto;
   padding: var(--spacing-xl);
-  
-  @include respond-to('sm') {
+
+  @include respond-to("sm") {
     padding: var(--spacing-2xl);
   }
   &__header {
     @include flex-between;
     margin-bottom: var(--spacing-xl);
-    
-    @include respond-to('sm') {
+
+    @include respond-to("sm") {
       flex-direction: row;
       align-items: center;
     }
-    
+
     @media (max-width: 640px) {
       flex-direction: column;
       align-items: flex-start;
@@ -26,14 +26,14 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
-    
+
     h1 {
       font-size: var(--text-3xl);
       font-weight: 700;
       color: var(--text-primary);
       margin: 0;
     }
-    
+
     p {
       color: var(--text-secondary);
       font-size: var(--text-sm);
@@ -48,15 +48,15 @@
     background-color: var(--gray-100);
     border-radius: var(--radius-lg);
     transition: all var(--transition-fast);
-    
+
     &:hover {
       color: var(--text-primary);
       background-color: var(--gray-200);
     }
-    
+
     [data-theme="dark"] & {
       background-color: var(--gray-800);
-      
+
       &:hover {
         background-color: var(--gray-700);
       }
@@ -66,10 +66,10 @@
   &__actions {
     display: flex;
     gap: var(--spacing-sm);
-    
+
     @media (max-width: 640px) {
       width: 100%;
-      
+
       .btn {
         flex: 1;
       }
@@ -81,8 +81,8 @@
     flex-direction: column;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
-    
-    @include respond-to('md') {
+
+    @include respond-to("md") {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
@@ -98,19 +98,19 @@
     flex-direction: column;
     padding: var(--spacing-4xl);
     color: var(--text-tertiary);
-    
+
     svg {
       margin-bottom: var(--spacing-lg);
       opacity: 0.5;
     }
-    
+
     h3 {
       font-size: var(--text-xl);
       font-weight: 600;
       margin-bottom: var(--spacing-sm);
       color: var(--text-secondary);
     }
-    
+
     p {
       font-size: var(--text-base);
       margin: 0;
@@ -127,48 +127,48 @@
   border-radius: var(--radius-lg);
   padding: var(--spacing-sm) var(--spacing-md);
   transition: all var(--transition-fast);
-  
+
   &:focus-within {
     border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   }
-  
+
   [data-theme="dark"] & {
     background-color: var(--gray-800);
     border-color: var(--gray-700);
   }
-  
+
   svg {
     color: var(--text-tertiary);
     margin-right: var(--spacing-sm);
   }
-  
+
   input {
     flex: 1;
     border: none;
     background: none;
     font-size: var(--text-base);
     color: var(--text-primary);
-    
+
     &:focus {
       outline: none;
     }
-    
+
     &::placeholder {
       color: var(--text-tertiary);
     }
   }
-  
+
   button {
     @include button-base;
     padding: var(--spacing-xs);
     color: var(--text-tertiary);
     border-radius: var(--radius-md);
-    
+
     &:hover {
       color: var(--text-primary);
       background-color: var(--gray-100);
-      
+
       [data-theme="dark"] & {
         background-color: var(--gray-700);
       }
@@ -180,7 +180,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
-  
+
   @media (max-width: 640px) {
     flex-direction: column;
     align-items: stretch;
@@ -192,11 +192,11 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  
+
   svg {
     color: var(--text-tertiary);
   }
-  
+
   select {
     @include button-base;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -205,12 +205,12 @@
     border-radius: var(--radius-md);
     color: var(--text-primary);
     font-size: var(--text-sm);
-    
+
     [data-theme="dark"] & {
       background-color: var(--gray-800);
       border-color: var(--gray-700);
     }
-    
+
     &:focus {
       outline: none;
       border-color: var(--primary-blue);
@@ -226,7 +226,7 @@
   cursor: pointer;
   font-size: var(--text-sm);
   color: var(--text-secondary);
-  
+
   input[type="checkbox"] {
     width: 16px;
     height: 16px;
@@ -238,12 +238,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
-  
-  @include respond-to('md') {
+
+  @include respond-to("md") {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  @include respond-to('xl') {
+
+  @include respond-to("xl") {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -254,15 +254,15 @@
   cursor: pointer;
   transition: all var(--transition-normal);
   position: relative;
-  
+
   &:hover {
     box-shadow: var(--shadow-lg);
   }
-  
+
   &--unread {
     border-left: 4px solid var(--primary-blue);
     background-color: rgba(37, 99, 235, 0.02);
-    
+
     [data-theme="dark"] & {
       border-left-color: #3b82f6; // Brighter blue for dark mode
       background-color: rgba(59, 130, 246, 0.05);
@@ -282,22 +282,22 @@
     border-radius: var(--radius-lg);
     @include flex-center;
     flex-shrink: 0;
-    
+
     &--budget {
       background-color: rgba(239, 68, 68, 0.1);
       color: var(--error);
     }
-    
+
     &--transaction {
       background-color: rgba(37, 99, 235, 0.1);
       color: var(--primary-blue);
     }
-    
+
     &--achievement {
       background-color: rgba(34, 197, 94, 0.1);
       color: var(--success);
     }
-    
+
     &--alert {
       background-color: rgba(245, 158, 11, 0.1);
       color: var(--warning);
@@ -307,7 +307,7 @@
   &__meta {
     flex: 1;
     min-width: 0;
-    
+
     h3 {
       font-size: var(--text-base);
       font-weight: 600;
@@ -328,11 +328,12 @@
     border-radius: var(--radius-md);
     opacity: 0;
     transition: all var(--transition-fast);
-    
+    background-color: transparent;
+
     .notification-card:hover & {
       opacity: 1;
     }
-    
+
     &:hover {
       color: var(--error);
       background-color: rgba(239, 68, 68, 0.1);
@@ -348,18 +349,18 @@
 
   &__amount {
     margin-bottom: var(--spacing-md);
-    
+
     span {
       font-size: var(--text-sm);
       font-weight: 600;
       padding: var(--spacing-xs) var(--spacing-sm);
       border-radius: var(--radius-md);
-      
+
       &.positive {
         color: var(--success);
         background-color: rgba(34, 197, 94, 0.1);
       }
-      
+
       &.negative {
         color: var(--error);
         background-color: rgba(239, 68, 68, 0.1);
@@ -379,22 +380,22 @@
     border-radius: var(--radius-md);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    
+
     &--budget {
       color: var(--error);
       background-color: rgba(239, 68, 68, 0.1);
     }
-    
+
     &--transaction {
       color: var(--primary-blue);
       background-color: rgba(37, 99, 235, 0.1);
     }
-    
+
     &--achievement {
       color: var(--success);
       background-color: rgba(34, 197, 94, 0.1);
     }
-    
+
     &--alert {
       color: var(--warning);
       background-color: rgba(245, 158, 11, 0.1);
@@ -423,28 +424,28 @@
   font-weight: 500;
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
-  
+
   &--secondary {
     color: var(--primary-blue);
     background-color: rgba(37, 99, 235, 0.1);
-    
+
     &:hover {
       background-color: rgba(37, 99, 235, 0.2);
     }
-    
+
     [data-theme="dark"] & {
       background-color: rgba(59, 130, 246, 0.1);
-      
+
       &:hover {
         background-color: rgba(59, 130, 246, 0.2);
       }
     }
   }
-  
+
   &--danger {
     color: var(--error);
     background-color: rgba(239, 68, 68, 0.1);
-    
+
     &:hover {
       background-color: rgba(239, 68, 68, 0.2);
     }
