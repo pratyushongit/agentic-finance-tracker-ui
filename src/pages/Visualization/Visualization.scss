@@ -99,6 +99,7 @@
   padding: var(--spacing-lg);
   display: flex;
   flex-direction: column;
+  align-items: center;
   
   &:hover {
     box-shadow: var(--shadow-lg);
@@ -114,6 +115,8 @@
   margin-bottom: var(--spacing-lg);
   padding-bottom: var(--spacing-md);
   border-bottom: 1px solid var(--gray-200);
+  width: 100%;
+  align-self: stretch;
   
   [data-theme="dark"] & {
     border-color: var(--gray-700);
@@ -163,9 +166,12 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   
   .recharts-wrapper {
     font-family: var(--font-family-sans);
+    width: 100% !important;
   }
   
   .recharts-tooltip-wrapper {
