@@ -10,8 +10,6 @@ import {
   Plus,
   X,
   CheckCircle,
-  AlertCircle,
-  Info,
   Zap
 } from 'lucide-react'
 import './Alerts.scss'

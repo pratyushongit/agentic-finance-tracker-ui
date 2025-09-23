@@ -52,6 +52,7 @@
     padding: var(--spacing-sm);
     color: var(--text-secondary);
     border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
     
     &:hover {
       color: var(--text-primary);
@@ -61,6 +62,20 @@
         background-color: var(--gray-800);
       }
     }
+    
+    &--active {
+      color: var(--primary-blue);
+      background-color: rgba(37, 99, 235, 0.1);
+      
+      [data-theme="dark"] & {
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+    }
+  }
+
+  &__notifications {
+    position: relative;
+    display: inline-block;
   }
 
   &__notification-badge {
@@ -86,15 +101,19 @@
 
   &__user-btn {
     @include button-base;
-    background-color: var(--primary-blue);
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-green-light));
     color: white;
-    padding: var(--spacing-sm);
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    @include flex-center;
+    font-weight: 600;
+    font-size: var(--text-sm);
     
     &:hover {
-      background-color: var(--primary-blue-dark);
+      background: linear-gradient(135deg, var(--success), var(--accent-green));
+      transform: scale(1.05);
     }
   }
 }
+

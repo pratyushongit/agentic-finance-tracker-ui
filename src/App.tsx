@@ -7,6 +7,7 @@ import ChatInterface from './pages/ChatInterface/ChatInterface'
 import InputSources from './pages/InputSources/InputSources'
 import Visualization from './pages/Visualization/Visualization'
 import Alerts from './pages/Alerts/Alerts'
+import ViewAllNotifications from './pages/ViewAllNotifications/ViewAllNotifications'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/input-sources" element={<InputSources />} />
           <Route path="/visualization" element={<Visualization />} />
           <Route path="/alerts" element={<Alerts />} />
+          <Route path="/notifications" element={<ViewAllNotifications />} />
         </Routes>
       </Layout>
     </motion.div>
