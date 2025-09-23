@@ -1,0 +1,80 @@
+@import "../../../styles/variables.scss";
+
+.chat-panel {
+  &__input {
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--gray-200);
+    background: var(--bg-secondary);
+
+    [data-theme="dark"] & {
+      border-color: var(--gray-700);
+    }
+  }
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--bg-primary);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm);
+
+  [data-theme="dark"] & {
+    border-color: var(--gray-700);
+  }
+}
+
+.chat-input {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: var(--spacing-sm);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  outline: none;
+
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+}
+
+.input-action-btn {
+  @include button-base;
+  background: none;
+  padding: var(--spacing-sm);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: var(--gray-100);
+
+    [data-theme="dark"] & {
+      background-color: var(--gray-800);
+    }
+  }
+
+  &--recording {
+    color: var(--error);
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+}
+
+.send-btn {
+  @include button-base;
+  background: var(--primary-blue);
+  color: white;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+
+  &:hover:not(:disabled) {
+    background: var(--primary-blue-dark);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
