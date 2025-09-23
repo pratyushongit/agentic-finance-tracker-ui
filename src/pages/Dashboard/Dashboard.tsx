@@ -136,38 +136,8 @@ const Dashboard: React.FC = () => {
 
       {/* Charts Section */}
       <div className="dashboard__charts">
-        {/* Recent Transactions - Left Half */}
-        <motion.div className="transactions-card" variants={itemVariants}>
-          <div className="transactions-card__header">
-            <h3>Recent Transactions</h3>
-            <button className="btn btn--sm btn--secondary">View All</button>
-          </div>
-          <div className="transactions-card__content">
-            {recentTransactions.map((transaction) => (
-              <div key={transaction.id} className="transaction-item">
-                <div className="transaction-item__info">
-                  <span className="transaction-item__description">
-                    {transaction.description}
-                  </span>
-                  <span className="transaction-item__category">
-                    {transaction.category}
-                  </span>
-                </div>
-                <div className="transaction-item__amount">
-                  <span className={`transaction-item__value ${
-                    transaction.amount > 0 ? 'transaction-item__value--positive' : 'transaction-item__value--negative'
-                  }`}>
-                    {transaction.amount > 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
-                  </span>
-                  <span className="transaction-item__date">{transaction.date}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Right Column - Charts */}
-        <div className="dashboard__right-column">
+        {/* Left Column - Charts */}
+        <div className="dashboard__left-column">
           {/* Monthly Spending by Category - Top Right */}
           <motion.div className="chart-card" variants={itemVariants}>
             <div className="chart-card__header">
@@ -237,6 +207,36 @@ const Dashboard: React.FC = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Recent Transactions - Right Half */}
+        <motion.div className="transactions-card" variants={itemVariants}>
+          <div className="transactions-card__header">
+            <h3>Recent Transactions</h3>
+            <button className="btn btn--sm btn--secondary">View All</button>
+          </div>
+          <div className="transactions-card__content">
+            {recentTransactions.map((transaction) => (
+              <div key={transaction.id} className="transaction-item">
+                <div className="transaction-item__info">
+                  <span className="transaction-item__description">
+                    {transaction.description}
+                  </span>
+                  <span className="transaction-item__category">
+                    {transaction.category}
+                  </span>
+                </div>
+                <div className="transaction-item__amount">
+                  <span className={`transaction-item__value ${
+                    transaction.amount > 0 ? 'transaction-item__value--positive' : 'transaction-item__value--negative'
+                  }`}>
+                    {transaction.amount > 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
+                  </span>
+                  <span className="transaction-item__date">{transaction.date}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
 
       {/* Spending Trend */}
