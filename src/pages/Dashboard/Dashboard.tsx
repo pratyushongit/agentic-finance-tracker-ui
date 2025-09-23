@@ -1,52 +1,95 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { 
-  DollarSign, 
-  TrendingUp, 
-  TrendingDown, 
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  DollarSign,
+  TrendingUp,
+  TrendingDown,
   CreditCard,
   PieChart,
   BarChart3,
   ArrowUpRight,
-  ArrowDownRight
-} from 'lucide-react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart as RechartsPieChart, Cell, Pie, BarChart, Bar } from 'recharts'
-import './Dashboard.scss'
+  ArrowDownRight,
+} from "lucide-react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart as RechartsPieChart,
+  Cell,
+  Pie,
+  BarChart,
+  Bar,
+} from "recharts";
+import "./Dashboard.scss";
 
 const Dashboard: React.FC = () => {
   // Mock data
   const spendingData = [
-    { month: 'Jan', amount: 2400 },
-    { month: 'Feb', amount: 1398 },
-    { month: 'Mar', amount: 9800 },
-    { month: 'Apr', amount: 3908 },
-    { month: 'May', amount: 4800 },
-    { month: 'Jun', amount: 3800 },
-  ]
+    { month: "Jan", amount: 2400 },
+    { month: "Feb", amount: 1398 },
+    { month: "Mar", amount: 9800 },
+    { month: "Apr", amount: 3908 },
+    { month: "May", amount: 4800 },
+    { month: "Jun", amount: 3800 },
+  ];
 
   const categoryData = [
-    { name: 'Food', value: 400, color: '#8884d8' },
-    { name: 'Transport', value: 300, color: '#82ca9d' },
-    { name: 'Entertainment', value: 200, color: '#ffc658' },
-    { name: 'Shopping', value: 278, color: '#ff7c7c' },
-    { name: 'Bills', value: 189, color: '#8dd1e1' },
-  ]
+    { name: "Food", value: 400, color: "#8884d8" },
+    { name: "Transport", value: 300, color: "#82ca9d" },
+    { name: "Entertainment", value: 200, color: "#ffc658" },
+    { name: "Shopping", value: 278, color: "#ff7c7c" },
+    { name: "Bills", value: 189, color: "#8dd1e1" },
+  ];
 
   const monthlySpending = [
-    { category: 'Food', amount: 1200 },
-    { category: 'Transport', amount: 800 },
-    { category: 'Entertainment', amount: 600 },
-    { category: 'Shopping', amount: 900 },
-    { category: 'Bills', amount: 1500 },
-  ]
+    { category: "Food", amount: 1200 },
+    { category: "Transport", amount: 800 },
+    { category: "Entertainment", amount: 600 },
+    { category: "Shopping", amount: 900 },
+    { category: "Bills", amount: 1500 },
+  ];
 
   const recentTransactions = [
-    { id: 1, description: 'Grocery Store', amount: -85.50, category: 'Food', date: '2024-01-15' },
-    { id: 2, description: 'Salary Deposit', amount: 3500.00, category: 'Income', date: '2024-01-15' },
-    { id: 3, description: 'Gas Station', amount: -45.20, category: 'Transport', date: '2024-01-14' },
-    { id: 4, description: 'Netflix Subscription', amount: -15.99, category: 'Entertainment', date: '2024-01-14' },
-    { id: 5, description: 'Online Shopping', amount: -129.99, category: 'Shopping', date: '2024-01-13' },
-  ]
+    {
+      id: 1,
+      description: "Grocery Store",
+      amount: -85.5,
+      category: "Food",
+      date: "2024-01-15",
+    },
+    {
+      id: 2,
+      description: "Salary Deposit",
+      amount: 3500.0,
+      category: "Income",
+      date: "2024-01-15",
+    },
+    {
+      id: 3,
+      description: "Gas Station",
+      amount: -45.2,
+      category: "Transport",
+      date: "2024-01-14",
+    },
+    {
+      id: 4,
+      description: "Netflix Subscription",
+      amount: -15.99,
+      category: "Entertainment",
+      date: "2024-01-14",
+    },
+    {
+      id: 5,
+      description: "Online Shopping",
+      amount: -129.99,
+      category: "Shopping",
+      date: "2024-01-13",
+    },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -54,30 +97,30 @@ const Dashboard: React.FC = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.05,
-        delayChildren: 0.1
-      }
-    }
-  }
+        delayChildren: 0.1,
+      },
+    },
+  };
 
   const itemVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 0,
-      scale: 0.95
+      scale: 0.95,
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
-      transition: { 
-        duration: 0.4, 
-        ease: [0.4, 0, 0.2, 1]
-      }
-    }
-  }
+      transition: {
+        duration: 0.4,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
+  };
 
   return (
-    <motion.div 
+    <motion.div
       className="dashboard"
       variants={containerVariants}
       initial="hidden"
@@ -160,17 +203,28 @@ const Dashboard: React.FC = () => {
             <div className="chart-card__content">
               <ResponsiveContainer width="100%" height={200}>
                 <BarChart data={monthlySpending}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--gray-200)" />
-                  <XAxis dataKey="category" stroke="var(--text-tertiary)" />
-                  <YAxis stroke="var(--text-tertiary)" />
-                  <Tooltip 
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke="var(--gray-200)"
+                  />
+                  <XAxis
+                    dataKey="category"
+                    stroke="var(--text-tertiary)"
+                    fontSize={12}
+                  />
+                  <YAxis stroke="var(--text-tertiary)" fontSize={12} />
+                  <Tooltip
                     contentStyle={{
-                      backgroundColor: 'var(--bg-primary)',
-                      border: '1px solid var(--gray-200)',
-                      borderRadius: 'var(--radius-md)'
+                      backgroundColor: "var(--bg-primary)",
+                      border: "1px solid var(--gray-200)",
+                      borderRadius: "var(--radius-md)",
                     }}
                   />
-                  <Bar dataKey="amount" fill="var(--primary-blue)" radius={[4, 4, 0, 0]} />
+                  <Bar
+                    dataKey="amount"
+                    fill="var(--primary-blue)"
+                    radius={[4, 4, 0, 0]}
+                  />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -207,8 +261,8 @@ const Dashboard: React.FC = () => {
                 <div className="chart-legend">
                   {categoryData.map((item, index) => (
                     <div key={index} className="chart-legend__item">
-                      <div 
-                        className="chart-legend__color" 
+                      <div
+                        className="chart-legend__color"
                         style={{ backgroundColor: item.color }}
                       />
                       <span>{item.name}</span>
@@ -239,12 +293,19 @@ const Dashboard: React.FC = () => {
                   </span>
                 </div>
                 <div className="transaction-item__amount">
-                  <span className={`transaction-item__value ${
-                    transaction.amount > 0 ? 'transaction-item__value--positive' : 'transaction-item__value--negative'
-                  }`}>
-                    {transaction.amount > 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
+                  <span
+                    className={`transaction-item__value ${
+                      transaction.amount > 0
+                        ? "transaction-item__value--positive"
+                        : "transaction-item__value--negative"
+                    }`}
+                  >
+                    {transaction.amount > 0 ? "+" : ""}$
+                    {Math.abs(transaction.amount).toFixed(2)}
                   </span>
-                  <span className="transaction-item__date">{transaction.date}</span>
+                  <span className="transaction-item__date">
+                    {transaction.date}
+                  </span>
                 </div>
               </div>
             ))}
@@ -266,21 +327,25 @@ const Dashboard: React.FC = () => {
             <ResponsiveContainer width="100%" height={250}>
               <LineChart data={spendingData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--gray-200)" />
-                <XAxis dataKey="month" stroke="var(--text-tertiary)" />
-                <YAxis stroke="var(--text-tertiary)" />
-                <Tooltip 
+                <XAxis
+                  dataKey="month"
+                  stroke="var(--text-tertiary)"
+                  fontSize={12}
+                />
+                <YAxis stroke="var(--text-tertiary)" fontSize={12} />
+                <Tooltip
                   contentStyle={{
-                    backgroundColor: 'var(--bg-primary)',
-                    border: '1px solid var(--gray-200)',
-                    borderRadius: 'var(--radius-md)'
+                    backgroundColor: "var(--bg-primary)",
+                    border: "1px solid var(--gray-200)",
+                    borderRadius: "var(--radius-md)",
                   }}
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="amount" 
-                  stroke="var(--primary-blue)" 
+                <Line
+                  type="monotone"
+                  dataKey="amount"
+                  stroke="var(--primary-blue)"
                   strokeWidth={3}
-                  dot={{ fill: 'var(--primary-blue)', strokeWidth: 2, r: 6 }}
+                  dot={{ fill: "var(--primary-blue)", strokeWidth: 2, r: 6 }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -288,7 +353,7 @@ const Dashboard: React.FC = () => {
         </motion.div>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
