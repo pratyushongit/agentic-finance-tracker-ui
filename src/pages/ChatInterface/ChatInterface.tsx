@@ -189,12 +189,7 @@ const ChatInterface: React.FC = () => {
       </div>
 
       {messages.length === 1 && (
-        <motion.div 
-          className="chat-interface__suggestions"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
+        <div className="chat-interface__suggestions">
           <h3>Try asking:</h3>
           <div className="suggestions-grid">
             {suggestedQuestions.map((question, index) => (
@@ -207,7 +202,7 @@ const ChatInterface: React.FC = () => {
               </button>
             ))}
           </div>
-        </motion.div>
+        </div>
       )}
 
       <div className="chat-interface__input">
