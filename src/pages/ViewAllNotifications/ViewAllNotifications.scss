@@ -264,6 +264,7 @@
     background-color: rgba(37, 99, 235, 0.02);
     
     [data-theme="dark"] & {
+      border-left-color: #3b82f6; // Brighter blue for dark mode
       background-color: rgba(59, 130, 246, 0.05);
     }
   }

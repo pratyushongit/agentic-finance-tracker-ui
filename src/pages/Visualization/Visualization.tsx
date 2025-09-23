@@ -136,7 +136,7 @@ const Visualization: React.FC = () => {
           </div>
           
           <button className="btn btn--secondary">
-            <Filter size={16} />
+            <Filter size={12} />
             More Filters
           </button>
         </div>
@@ -148,7 +148,7 @@ const Visualization: React.FC = () => {
         <motion.div className="chart-container chart-container--full-width" variants={itemVariants}>
           <div className="chart-header">
             <div className="chart-title">
-              <TrendingUp className="chart-icon" size={20} />
+              <TrendingUp className="chart-icon" size={16} />
               <h3>Spending Trend</h3>
             </div>
             <div className="chart-actions">

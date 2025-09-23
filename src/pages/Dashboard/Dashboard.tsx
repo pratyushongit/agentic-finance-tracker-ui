@@ -92,13 +92,13 @@ const Dashboard: React.FC = () => {
       <motion.div className="dashboard__stats" variants={itemVariants}>
         <div className="stat-card stat-card--primary">
           <div className="stat-card__icon">
-            <DollarSign size={24} />
+            <DollarSign size={20} />
           </div>
           <div className="stat-card__content">
             <h3>Total Balance</h3>
             <p className="stat-card__value">$12,450.00</p>
             <span className="stat-card__change stat-card__change--positive">
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={12} />
               +2.5% from last month
             </span>
           </div>
@@ -106,13 +106,13 @@ const Dashboard: React.FC = () => {
 
         <div className="stat-card stat-card--success">
           <div className="stat-card__icon">
-            <TrendingUp size={24} />
+            <TrendingUp size={20} />
           </div>
           <div className="stat-card__content">
             <h3>Monthly Income</h3>
             <p className="stat-card__value">$4,200.00</p>
             <span className="stat-card__change stat-card__change--positive">
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={12} />
               +5.2% from last month
             </span>
           </div>
@@ -120,13 +120,13 @@ const Dashboard: React.FC = () => {
 
         <div className="stat-card stat-card--warning">
           <div className="stat-card__icon">
-            <TrendingDown size={24} />
+            <TrendingDown size={20} />
           </div>
           <div className="stat-card__content">
             <h3>Monthly Expenses</h3>
             <p className="stat-card__value">$3,150.00</p>
             <span className="stat-card__change stat-card__change--negative">
-              <ArrowDownRight size={16} />
+              <ArrowDownRight size={12} />
               +8.1% from last month
             </span>
           </div>
@@ -134,13 +134,13 @@ const Dashboard: React.FC = () => {
 
         <div className="stat-card stat-card--info">
           <div className="stat-card__icon">
-            <CreditCard size={24} />
+            <CreditCard size={20} />
           </div>
           <div className="stat-card__content">
             <h3>Savings Rate</h3>
             <p className="stat-card__value">25%</p>
             <span className="stat-card__change stat-card__change--positive">
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={12} />
               +1.2% from last month
             </span>
           </div>
@@ -155,7 +155,7 @@ const Dashboard: React.FC = () => {
           <motion.div className="chart-card" variants={itemVariants}>
             <div className="chart-card__header">
               <h3>Monthly Spending by Category</h3>
-              <BarChart3 className="chart-card__icon" size={20} />
+              <BarChart3 className="chart-card__icon" size={16} />
             </div>
             <div className="chart-card__content">
               <ResponsiveContainer width="100%" height={200}>
@@ -180,7 +180,7 @@ const Dashboard: React.FC = () => {
           <motion.div className="chart-card" variants={itemVariants}>
             <div className="chart-card__header">
               <h3>Category Breakdown</h3>
-              <PieChart className="chart-card__icon" size={20} />
+              <PieChart className="chart-card__icon" size={16} />
             </div>
             <div className="chart-card__content">
               <div className="pie-chart-container">

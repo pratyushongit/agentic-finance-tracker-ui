@@ -101,7 +101,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         <div className="sidebar__header">
           <div className="sidebar__logo">
             <div className="sidebar__logo-icon">
-              <TrendingUp size={24} />
+              <TrendingUp size={20} />
             </div>
             <span className="sidebar__logo-text">Finance Agent</span>
           </div>
@@ -111,7 +111,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             onClick={onClose}
             aria-label="Close sidebar"
           >
-            <X size={20} />
+            <X size={16} />
           </button>
         </div>
 
@@ -125,7 +125,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               }
               onClick={() => window.innerWidth < 1024 && onClose()}
             >
-              <item.icon className="sidebar__nav-icon" size={20} />
+              <item.icon className="sidebar__nav-icon" size={16} />
               <div className="sidebar__nav-content">
                 <span className="sidebar__nav-title">{item.title}</span>
                 <span className="sidebar__nav-description">{item.description}</span>

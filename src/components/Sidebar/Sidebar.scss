@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 280px;
+  width: 240px;
   background-color: var(--bg-primary);
   border-right: 1px solid var(--gray-200);
   z-index: 40;
@@ -34,7 +34,7 @@
     @include flex-between;
     padding: var(--spacing-xl);
     border-bottom: 1px solid var(--gray-200);
-    height: 80px;
+    height: 64px;
     
     [data-theme="dark"] & {
       border-color: var(--gray-700);
@@ -143,7 +143,7 @@
     @include flex-center;
     padding: var(--spacing-xl);
     border-top: 1px solid var(--gray-200);
-    height: 80px;
+    height: 64px;
     
     [data-theme="dark"] & {
       border-color: var(--gray-700);

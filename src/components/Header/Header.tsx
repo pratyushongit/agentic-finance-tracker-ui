@@ -124,7 +124,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           onClick={toggleTheme}
           aria-label="Toggle theme"
         >
-          {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+          {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
         </button>
 
         <div className="header__notifications" ref={notificationRef}>
@@ -133,7 +133,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
             onClick={toggleNotifications}
             aria-label="Notifications"
           >
-            <Bell size={20} />
+            <Bell size={24} />
             {unreadCount > 0 && (
               <span className="header__notification-badge">{unreadCount}</span>
             )}

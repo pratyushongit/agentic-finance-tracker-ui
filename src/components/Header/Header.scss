@@ -8,14 +8,14 @@
   left: 0;
   right: 0;
   z-index: 30;
-  height: 80px;
+  height: 64px;
   
   [data-theme="dark"] & {
     border-color: var(--gray-700);
   }
   
   @include respond-to('lg') {
-    left: 280px; // Sidebar width
+    left: 240px; // Sidebar width
   }
 
   &__left {
@@ -104,8 +104,8 @@
     background: linear-gradient(135deg, var(--accent-green), var(--accent-green-light));
     color: white;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     @include flex-center;
     font-weight: 600;
     font-size: var(--text-sm);

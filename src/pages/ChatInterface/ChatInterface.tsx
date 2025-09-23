@@ -108,7 +108,7 @@ const ChatInterface: React.FC = () => {
     >
       <div className="chat-interface__header">
         <div className="chat-interface__title">
-          <Bot className="chat-interface__bot-icon" size={24} />
+          <Bot className="chat-interface__bot-icon" size={20} />
           <div>
             <h1>AI Finance Assistant</h1>
             <p>Ask me anything about your finances</p>
@@ -133,9 +133,9 @@ const ChatInterface: React.FC = () => {
             >
               <div className="message__avatar">
                 {message.type === 'user' ? (
-                  <User size={20} />
+                  <User size={16} />
                 ) : (
-                  <Bot size={20} />
+                  <Bot size={16} />
                 )}
               </div>
               <div className="message__content">
@@ -171,7 +171,7 @@ const ChatInterface: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="message__avatar">
-              <Bot size={20} />
+              <Bot size={16} />
             </div>
             <div className="message__content">
               <div className="message__bubble message__bubble--typing">
@@ -208,7 +208,7 @@ const ChatInterface: React.FC = () => {
       <div className="chat-interface__input">
         <div className="input-container">
           <button className="input-action-btn" aria-label="Attach file">
-            <Paperclip size={20} />
+            <Paperclip size={16} />
           </button>
           
           <input
@@ -226,7 +226,7 @@ const ChatInterface: React.FC = () => {
             onClick={toggleRecording}
             aria-label="Voice input"
           >
-            {isRecording ? <MicOff size={20} /> : <Mic size={20} />}
+            {isRecording ? <MicOff size={16} /> : <Mic size={16} />}
           </button>
           
           <button
@@ -235,7 +235,7 @@ const ChatInterface: React.FC = () => {
             className="send-btn"
             aria-label="Send message"
           >
-            <Send size={20} />
+            <Send size={16} />
           </button>
         </div>
       </div>

@@ -2,17 +2,17 @@
   display: flex;
   height: 100vh; // Exact viewport height to prevent HTML scroll
   background-color: var(--bg-secondary);
-  padding-top: 80px; // Header height
+  padding-top: 64px; // Header height (reduced for compact UI)
 
   &__main {
     flex: 1;
     display: flex;
     flex-direction: column;
     min-width: 0; // Prevent flex item from overflowing
-    height: calc(100vh - 80px); // Available height minus header
+    height: calc(100vh - 64px); // Available height minus header
     
     @include respond-to('lg') {
-      margin-left: 280px; // Sidebar width
+      margin-left: 240px; // Sidebar width (reduced for compact UI)
     }
   }
 
