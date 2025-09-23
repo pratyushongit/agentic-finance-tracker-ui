@@ -6,9 +6,16 @@
     padding: var(--spacing-lg);
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--gray-200);
+    width: 100%;
+    box-sizing: border-box;
 
     [data-theme='dark'] & {
       border-color: var(--gray-700);
+    }
+
+    .chat-panel__container--minimized & {
+      border-bottom: none;
+      background: var(--bg-primary);
     }
   }
 

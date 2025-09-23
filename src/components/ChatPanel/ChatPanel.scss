@@ -36,6 +36,10 @@
     }
 
     &--minimized {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       .chat-panel__messages,
       .chat-panel__suggestions,
       .chat-panel__input {

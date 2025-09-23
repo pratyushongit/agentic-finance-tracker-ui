@@ -33,14 +33,14 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({
           onClick={onToggleMinimize}
           aria-label={isMinimized ? 'Expand chat' : 'Minimize chat'}
         >
-          <Minimize2 size={16} />
+          <Minimize2 size={20} />
         </button>
         <button
           className="chat-panel__control-btn"
           onClick={onClose}
           aria-label="Close chat"
         >
-          <X size={16} />
+          <X size={20} />
         </button>
       </div>
     </div>
