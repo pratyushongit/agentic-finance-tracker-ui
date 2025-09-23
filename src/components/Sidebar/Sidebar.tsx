@@ -1,79 +1,65 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Home, 
-  MessageCircle, 
-  Upload, 
-  BarChart3, 
-  Bell, 
-  X,
-  TrendingUp
-} from 'lucide-react'
-import './Sidebar.scss'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Home, Upload, BarChart3, Bell, X, TrendingUp } from "lucide-react";
+import "./Sidebar.scss";
 
 interface SidebarProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 const navigationItems = [
   {
-    title: 'Dashboard',
+    title: "Dashboard",
     icon: Home,
-    path: '/',
-    description: 'Overview & Analytics'
+    path: "/",
+    description: "Overview & Analytics",
   },
   {
-    title: 'Chat Interface',
-    icon: MessageCircle,
-    path: '/chat',
-    description: 'Natural Language Queries'
-  },
-  {
-    title: 'Input Sources',
+    title: "Input Sources",
     icon: Upload,
-    path: '/input-sources',
-    description: 'Data Import & Management'
+    path: "/input-sources",
+    description: "Data Import & Management",
   },
   {
-    title: 'Visualization',
+    title: "Visualization",
     icon: BarChart3,
-    path: '/visualization',
-    description: 'Charts & Reports'
+    path: "/visualization",
+    description: "Charts & Reports",
   },
   {
-    title: 'Alerts & Notifications',
+    title: "Alerts & Notifications",
     icon: Bell,
-    path: '/alerts',
-    description: 'Budget & Anomaly Alerts'
-  }
-]
+    path: "/alerts",
+    description: "Budget & Anomaly Alerts",
+  },
+];
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const sidebarVariants = {
     open: {
       x: 0,
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 300,
-        damping: 30
-      }
+        damping: 30,
+      },
     },
     closed: {
-      x: '-100%',
+      x: "-100%",
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 300,
-        damping: 30
-      }
-    }
-  }
+        damping: 30,
+      },
+    },
+  };
 
   const overlayVariants = {
     open: { opacity: 1 },
-    closed: { opacity: 0 }
-  }
+    closed: { opacity: 0 },
+  };
 
   return (
     <>
@@ -95,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       <motion.aside
         className="sidebar"
         initial="closed"
-        animate={isOpen ? 'open' : 'closed'}
+        animate={isOpen ? "open" : "closed"}
         variants={sidebarVariants}
       >
         <div className="sidebar__header">
@@ -105,8 +91,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             </div>
             <span className="sidebar__logo-text">Finance Agent</span>
           </div>
-          
-          <button 
+
+          <button
             className="sidebar__close-btn lg:hidden"
             onClick={onClose}
             aria-label="Close sidebar"
@@ -120,15 +106,19 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
             <NavLink
               key={item.path}
               to={item.path}
-              className={({ isActive }) => 
-                `sidebar__nav-item ${isActive ? 'sidebar__nav-item--active' : ''}`
+              className={({ isActive }) =>
+                `sidebar__nav-item ${
+                  isActive ? "sidebar__nav-item--active" : ""
+                }`
               }
               onClick={() => window.innerWidth < 1024 && onClose()}
             >
               <item.icon className="sidebar__nav-icon" size={16} />
               <div className="sidebar__nav-content">
                 <span className="sidebar__nav-title">{item.title}</span>
-                <span className="sidebar__nav-description">{item.description}</span>
+                <span className="sidebar__nav-description">
+                  {item.description}
+                </span>
               </div>
             </NavLink>
           ))}
@@ -147,7 +137,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         </div>
       </motion.aside>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

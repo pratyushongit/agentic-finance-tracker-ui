@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Menu, Bell, Moon, Sun } from "lucide-react";
+import { Menu, Bell, Moon, Sun, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../contexts";
@@ -10,9 +10,10 @@ import "./Header.scss";
 
 interface HeaderProps {
   onMenuClick: () => void;
+  onChatClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
+const Header: React.FC<HeaderProps> = ({ onMenuClick, onChatClick }) => {
   const navigate = useNavigate();
   const { isDarkMode, toggleTheme } = useTheme();
   const [showNotifications, setShowNotifications] = useState(false);
@@ -129,6 +130,14 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           aria-label="Toggle theme"
         >
           {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
+        </button>
+
+        <button
+          className="header__action-btn"
+          onClick={onChatClick}
+          aria-label="Open chat"
+        >
+          <MessageCircle size={24} />
         </button>
 
         <div className="header__notifications" ref={notificationRef}>
