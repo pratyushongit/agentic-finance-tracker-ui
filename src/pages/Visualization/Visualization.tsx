@@ -145,7 +145,7 @@ const Visualization: React.FC = () => {
       {/* Main Charts Grid */}
       <div className="visualization__grid">
         {/* Spending Trend */}
-        <motion.div className="chart-container chart-container--large" variants={itemVariants}>
+        <motion.div className="chart-container chart-container--full-width" variants={itemVariants}>
           <div className="chart-header">
             <div className="chart-title">
               <TrendingUp className="chart-icon" size={20} />
@@ -220,8 +220,10 @@ const Visualization: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Category Breakdown */}
-        <motion.div className="chart-container" variants={itemVariants}>
+        {/* Secondary Charts Grid */}
+        <div className="visualization__secondary-grid">
+          {/* Category Breakdown */}
+          <motion.div className="chart-container" variants={itemVariants}>
           <div className="chart-header">
             <div className="chart-title">
               <PieChart className="chart-icon" size={20} />
@@ -235,26 +237,28 @@ const Visualization: React.FC = () => {
           </div>
           
           <div className="chart-content">
-            <ResponsiveContainer width="100%" height={300}>
-              <RechartsPieChart>
-                <Pie
-                  data={categoryBreakdownData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={120}
-                  paddingAngle={2}
-                  dataKey="value"
-                >
-                  {categoryBreakdownData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip 
-                  formatter={(value: number) => [`$${value}`, 'Amount']}
-                />
-              </RechartsPieChart>
-            </ResponsiveContainer>
+            <div className="pie-chart-wrapper">
+              <ResponsiveContainer width="100%" height={250}>
+                <RechartsPieChart>
+                  <Pie
+                    data={categoryBreakdownData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={45}
+                    outerRadius={100}
+                    paddingAngle={2}
+                    dataKey="value"
+                  >
+                    {categoryBreakdownData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip 
+                    formatter={(value: number) => [`$${value}`, 'Amount']}
+                  />
+                </RechartsPieChart>
+              </ResponsiveContainer>
+            </div>
             
             <div className="category-list">
               {categoryBreakdownData.map((category, index) => (
@@ -274,10 +278,12 @@ const Visualization: React.FC = () => {
               ))}
             </div>
           </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Monthly Comparison */}
-        <motion.div className="chart-container" variants={itemVariants}>
+          {/* Right Column - Stacked Charts */}
+          <div className="visualization__right-column">
+            {/* Monthly Comparison */}
+            <motion.div className="chart-container" variants={itemVariants}>
           <div className="chart-header">
             <div className="chart-title">
               <BarChart3 className="chart-icon" size={20} />
@@ -309,10 +315,10 @@ const Visualization: React.FC = () => {
               </BarChart>
             </ResponsiveContainer>
           </div>
-        </motion.div>
+            </motion.div>
 
-        {/* Daily Spending */}
-        <motion.div className="chart-container" variants={itemVariants}>
+            {/* Daily Spending */}
+            <motion.div className="chart-container" variants={itemVariants}>
           <div className="chart-header">
             <div className="chart-title">
               <Calendar className="chart-icon" size={20} />
@@ -351,7 +357,9 @@ const Visualization: React.FC = () => {
               </LineChart>
             </ResponsiveContainer>
           </div>
-        </motion.div>
+            </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Summary Stats */}

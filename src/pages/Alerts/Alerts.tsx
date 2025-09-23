@@ -269,7 +269,7 @@ const Alerts: React.FC = () => {
               alerts.map((alert) => (
                 <motion.div 
                   key={alert.id} 
-                  className={`alert-item ${!alert.isRead ? 'alert-item--unread' : ''}`}
+                  className={`alert-item alert-item--${alert.type} alert-item--${alert.severity} ${!alert.isRead ? 'alert-item--unread' : ''}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
