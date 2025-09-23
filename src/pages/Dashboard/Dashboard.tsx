@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import {
   DollarSign,
   TrendingUp,
@@ -27,6 +28,8 @@ import {
 import "./Dashboard.scss";
 
 const Dashboard: React.FC = () => {
+  const navigate = useNavigate();
+
   // Mock data
   const spendingData = [
     { month: "Jan", amount: 2400 },
@@ -279,7 +282,12 @@ const Dashboard: React.FC = () => {
         <motion.div className="transactions-card" variants={itemVariants}>
           <div className="transactions-card__header">
             <h3>Recent Transactions</h3>
-            <button className="btn btn--sm btn--secondary">View All</button>
+            <button
+              className="btn btn--sm btn--secondary"
+              onClick={() => navigate("/transactions")}
+            >
+              View All
+            </button>
           </div>
           <div className="transactions-card__content">
             {recentTransactions.map((transaction) => (

@@ -7,6 +7,7 @@ import InputSources from "./pages/InputSources/InputSources";
 import Visualization from "./pages/Visualization/Visualization";
 import Alerts from "./pages/Alerts/Alerts";
 import ViewAllNotifications from "./pages/ViewAllNotifications/ViewAllNotifications";
+import ViewAllTransactions from "./pages/ViewAllTransactions/ViewAllTransactions";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/visualization" element={<Visualization />} />
           <Route path="/alerts" element={<Alerts />} />
           <Route path="/notifications" element={<ViewAllNotifications />} />
+          <Route path="/transactions" element={<ViewAllTransactions />} />
         </Routes>
       </Layout>
     </motion.div>
