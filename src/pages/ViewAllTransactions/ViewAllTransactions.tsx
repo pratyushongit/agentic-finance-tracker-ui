@@ -5,11 +5,9 @@ import {
   Filter,
   Search,
   Download,
-  Calendar,
   DollarSign,
   TrendingUp,
   TrendingDown,
-  CreditCard,
   ShoppingBag,
   Car,
   Home,
@@ -34,7 +32,7 @@ interface Transaction {
 const ViewAllTransactions: React.FC = () => {
   const navigate = useNavigate();
 
-  const [transactions, setTransactions] = useState<Transaction[]>([
+  const [transactions] = useState<Transaction[]>([
     {
       id: 1,
       description: 'Grocery Store',

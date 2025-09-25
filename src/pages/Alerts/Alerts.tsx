@@ -137,7 +137,7 @@ const Alerts: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'alerts' | 'rules'>('alerts');
   const [showNewRuleForm, setShowNewRuleForm] = useState(false);
 
-  const getAlertIcon = (type: string, severity: string) => {
+  const getAlertIcon = (type: string) => {
     const iconProps = { size: 20 };
 
     switch (type) {
@@ -301,7 +301,7 @@ const Alerts: React.FC = () => {
                   />
 
                   <div className="alert-item__icon">
-                    {getAlertIcon(alert.type, alert.severity)}
+                    {getAlertIcon(alert.type)}
                   </div>
 
                   <div className="alert-item__content">

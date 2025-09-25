@@ -27,7 +27,7 @@ interface DataSource {
 }
 
 const InputSources: React.FC = () => {
-  const [dataSources, setDataSources] = useState<DataSource[]>([
+  const [dataSources] = useState<DataSource[]>([
     {
       id: '1',
       type: 'bank',
